@@ -1,0 +1,335 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2025-01-24T10:00:00Z",
+    "description": "Critical bug tracking with immediate rectification protocols",
+    "totalBugs": 0,
+    "activeBugs": 0,
+    "resolvedBugs": 0,
+    "criticalBugs": 0,
+    "systemVersion": "StarterKit v1.0"
+  },
+  "bugSeverity": {
+    "critical": {
+      "description": "System-breaking bugs that prevent core functionality",
+      "priority": 1,
+      "maxResolutionTime": "2 hours",
+      "escalationTime": "30 minutes",
+      "autoAssign": true,
+      "requiresImmediate": true
+    },
+    "high": {
+      "description": "Major functionality issues affecting user experience",
+      "priority": 2,
+      "maxResolutionTime": "8 hours",
+      "escalationTime": "2 hours",
+      "autoAssign": true,
+      "requiresImmediate": false
+    },
+    "medium": {
+      "description": "Moderate issues that impact functionality but have workarounds",
+      "priority": 3,
+      "maxResolutionTime": "24 hours",
+      "escalationTime": "8 hours",
+      "autoAssign": false,
+      "requiresImmediate": false
+    },
+    "low": {
+      "description": "Minor issues or cosmetic problems",
+      "priority": 4,
+      "maxResolutionTime": "72 hours",
+      "escalationTime": "24 hours",
+      "autoAssign": false,
+      "requiresImmediate": false
+    }
+  },
+  "bugStatuses": {
+    "detected": {
+      "description": "Bug identified but not yet triaged",
+      "color": "orange",
+      "nextActions": ["triage", "assign", "investigate"]
+    },
+    "triaged": {
+      "description": "Bug assessed and prioritized",
+      "color": "yellow",
+      "nextActions": ["assign", "investigate", "start-fix"]
+    },
+    "investigating": {
+      "description": "Root cause analysis in progress",
+      "color": "blue",
+      "nextActions": ["identify-cause", "create-fix-plan", "escalate"]
+    },
+    "fixing": {
+      "description": "Fix implementation in progress",
+      "color": "purple",
+      "nextActions": ["complete-fix", "test-fix", "review-fix"]
+    },
+    "testing": {
+      "description": "Fix implemented and under testing",
+      "color": "cyan",
+      "nextActions": ["test-pass", "test-fail", "deploy-fix"]
+    },
+    "resolved": {
+      "description": "Bug fixed and verified",
+      "color": "green",
+      "nextActions": ["close", "monitor", "document-lessons"]
+    },
+    "closed": {
+      "description": "Bug permanently resolved",
+      "color": "gray",
+      "nextActions": ["reopen", "archive"]
+    },
+    "duplicate": {
+      "description": "Duplicate of existing bug",
+      "color": "gray",
+      "nextActions": ["link-original", "close"]
+    }
+  },
+  "bugs": {
+    "BUG-TEMPLATE-001": {
+      "id": "BUG-TEMPLATE-001",
+      "title": "Template Bug - Replace with Actual Bugs",
+      "description": "This is a template bug entry. Replace with actual project bugs.",
+      "severity": "low",
+      "status": "detected",
+      "priority": 4,
+      "created": "2025-01-24T10:00:00Z",
+      "updated": "2025-01-24T10:00:00Z",
+      "detectedBy": "system",
+      "assignee": "unassigned",
+      "component": "template",
+      "environment": "development",
+      "reproducible": true,
+      "tags": ["template", "example"],
+      "relatedTasks": [],
+      "relatedSessions": [],
+      "duplicateOf": null,
+      "resolution": {
+        "method": null,
+        "timeToResolve": null,
+        "rootCause": null,
+        "preventionMeasures": []
+      },
+      "timeline": [
+        {
+          "timestamp": "2025-01-24T10:00:00Z",
+          "action": "detected",
+          "actor": "system",
+          "details": "Template bug created"
+        }
+      ],
+      "automation": {
+        "autoDetected": false,
+        "patternMatched": false,
+        "autoResolution": false,
+        "preventionRules": []
+      }
+    }
+  },
+  "patterns": {
+    "commonBugTypes": {
+      "null-pointer": {
+        "frequency": 0,
+        "avgResolutionTime": "0 hours",
+        "preventionRules": ["null-checks", "defensive-programming"],
+        "detectionPatterns": ["NullPointerException", "undefined is not a function"]
+      },
+      "memory-leak": {
+        "frequency": 0,
+        "avgResolutionTime": "0 hours",
+        "preventionRules": ["memory-monitoring", "cleanup-procedures"],
+        "detectionPatterns": ["memory usage increase", "performance degradation"]
+      },
+      "race-condition": {
+        "frequency": 0,
+        "avgResolutionTime": "0 hours",
+        "preventionRules": ["synchronization", "atomic-operations"],
+        "detectionPatterns": ["intermittent failures", "timing-dependent errors"]
+      },
+      "configuration-error": {
+        "frequency": 0,
+        "avgResolutionTime": "0 hours",
+        "preventionRules": ["config-validation", "environment-checks"],
+        "detectionPatterns": ["startup failures", "connection errors"]
+      }
+    },
+    "resolutionPatterns": {
+      "quick-fixes": {
+        "description": "Common fixes that can be applied immediately",
+        "patterns": [
+          "restart-service",
+          "clear-cache",
+          "update-configuration",
+          "rollback-change"
+        ]
+      },
+      "investigation-steps": {
+        "description": "Standard investigation procedures",
+        "patterns": [
+          "check-logs",
+          "reproduce-issue",
+          "isolate-component",
+          "analyze-timeline"
+        ]
+      }
+    }
+  },
+  "automation": {
+    "detection": {
+      "enabled": true,
+      "methods": [
+        "error-monitoring",
+        "performance-monitoring",
+        "user-feedback",
+        "automated-testing",
+        "log-analysis"
+      ],
+      "triggers": [
+        "error-threshold-exceeded",
+        "performance-degradation",
+        "test-failure",
+        "user-report"
+      ]
+    },
+    "triage": {
+      "enabled": true,
+      "rules": {
+        "severity-assignment": "Auto-assign severity based on impact and frequency",
+        "component-routing": "Route bugs to appropriate team based on component",
+        "duplicate-detection": "Automatically detect and link duplicate bugs",
+        "escalation": "Auto-escalate based on time and severity"
+      }
+    },
+    "resolution": {
+      "enabled": true,
+      "capabilities": [
+        "pattern-matching",
+        "auto-fix-suggestions",
+        "rollback-automation",
+        "hotfix-deployment"
+      ],
+      "rules": {
+        "known-patterns": "Apply known fixes for recognized patterns",
+        "safe-rollback": "Automatically rollback problematic changes",
+        "hotfix-approval": "Auto-approve hotfixes for critical bugs"
+      }
+    },
+    "prevention": {
+      "enabled": true,
+      "methods": [
+        "pattern-analysis",
+        "code-scanning",
+        "configuration-validation",
+        "environment-monitoring"
+      ],
+      "rules": {
+        "pattern-prevention": "Implement prevention rules based on bug patterns",
+        "proactive-monitoring": "Monitor for conditions that lead to bugs",
+        "early-warning": "Alert on conditions that may cause bugs"
+      }
+    }
+  },
+  "metrics": {
+    "resolution": {
+      "averageResolutionTime": "0 hours",
+      "criticalBugResolutionTime": "0 hours",
+      "firstTimeFixRate": "0%",
+      "escalationRate": "0%"
+    },
+    "detection": {
+      "autoDetectionRate": "0%",
+      "falsePositiveRate": "0%",
+      "timeToDetection": "0 hours",
+      "detectionCoverage": "0%"
+    },
+    "prevention": {
+      "preventedBugs": 0,
+      "patternMatchSuccessRate": "0%",
+      "proactiveFixesApplied": 0,
+      "preventionEffectiveness": "0%"
+    },
+    "quality": {
+      "bugEscapeRate": "0%",
+      "customerReportedBugs": 0,
+      "regressionRate": "0%",
+      "bugDensity": "0 bugs per KLOC"
+    }
+  },
+  "workflows": {
+    "criticalBugWorkflow": {
+      "description": "Immediate response workflow for critical bugs",
+      "steps": [
+        "immediate-notification",
+        "emergency-triage",
+        "assign-senior-developer",
+        "start-investigation",
+        "implement-hotfix",
+        "deploy-emergency-patch",
+        "verify-resolution",
+        "post-mortem-analysis"
+      ],
+      "maxDuration": "2 hours",
+      "escalationPoints": ["30 minutes", "1 hour", "1.5 hours"]
+    },
+    "standardBugWorkflow": {
+      "description": "Standard workflow for non-critical bugs",
+      "steps": [
+        "detection",
+        "triage",
+        "assignment",
+        "investigation",
+        "fix-implementation",
+        "testing",
+        "deployment",
+        "verification",
+        "closure"
+      ],
+      "maxDuration": "varies by severity",
+      "escalationPoints": ["varies by severity"]
+    }
+  },
+  "integrations": {
+    "taskManagement": {
+      "enabled": true,
+      "autoCreateTasks": true,
+      "linkBugsToTasks": true,
+      "updateTaskProgress": true
+    },
+    "sessionManagement": {
+      "enabled": true,
+      "trackBugSessions": true,
+      "linkResolutionSessions": true,
+      "preserveBugContext": true
+    },
+    "knowledgeManagement": {
+      "enabled": true,
+      "captureBugKnowledge": true,
+      "updatePatterns": true,
+      "generateLessonsLearned": true
+    },
+    "analytics": {
+      "enabled": true,
+      "trackBugMetrics": true,
+      "generateInsights": true,
+      "predictiveBugAnalysis": true
+    }
+  },
+  "templates": {
+    "criticalBug": {
+      "severity": "critical",
+      "priority": 1,
+      "maxResolutionTime": "2 hours",
+      "autoAssign": true,
+      "workflow": "criticalBugWorkflow",
+      "notifications": ["immediate", "escalation"]
+    },
+    "standardBug": {
+      "severity": "medium",
+      "priority": 3,
+      "maxResolutionTime": "24 hours",
+      "autoAssign": false,
+      "workflow": "standardBugWorkflow",
+      "notifications": ["standard"]
+    }
+  }
+} 

@@ -1,0 +1,407 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2025-01-24T10:00:00Z",
+    "description": "Sophisticated knowledge graph and relationship mapping system",
+    "totalNodes": 0,
+    "totalRelationships": 0,
+    "systemVersion": "StarterKit v1.0"
+  },
+  "nodeTypes": {
+    "task": {
+      "description": "Project tasks and work items",
+      "properties": ["id", "title", "type", "status", "priority", "assignee"],
+      "relationships": ["depends_on", "blocks", "relates_to", "generates"],
+      "color": "#4CAF50"
+    },
+    "bug": {
+      "description": "Bugs and issues",
+      "properties": ["id", "severity", "status", "component", "resolution"],
+      "relationships": ["caused_by", "fixed_by", "duplicates", "relates_to"],
+      "color": "#F44336"
+    },
+    "session": {
+      "description": "AI agent sessions",
+      "properties": ["id", "type", "duration", "agent", "context"],
+      "relationships": ["works_on", "continues", "branches_from", "merges_to"],
+      "color": "#2196F3"
+    },
+    "decision": {
+      "description": "Architectural and design decisions",
+      "properties": ["id", "title", "rationale", "alternatives", "impact"],
+      "relationships": ["influences", "supersedes", "implements", "validates"],
+      "color": "#FF9800"
+    },
+    "pattern": {
+      "description": "Reusable patterns and solutions",
+      "properties": ["id", "name", "category", "applicability", "consequences"],
+      "relationships": ["applies_to", "conflicts_with", "extends", "uses"],
+      "color": "#9C27B0"
+    },
+    "knowledge": {
+      "description": "Knowledge items and insights",
+      "properties": ["id", "topic", "content", "source", "confidence"],
+      "relationships": ["supports", "contradicts", "builds_on", "validates"],
+      "color": "#607D8B"
+    },
+    "component": {
+      "description": "System components and modules",
+      "properties": ["id", "name", "type", "responsibility", "dependencies"],
+      "relationships": ["depends_on", "provides", "uses", "implements"],
+      "color": "#795548"
+    },
+    "requirement": {
+      "description": "Project requirements and specifications",
+      "properties": ["id", "type", "priority", "source", "status"],
+      "relationships": ["implements", "validates", "conflicts_with", "derives_from"],
+      "color": "#3F51B5"
+    }
+  },
+  "relationshipTypes": {
+    "depends_on": {
+      "description": "Entity depends on another entity",
+      "direction": "directed",
+      "strength": "strong",
+      "properties": ["dependency_type", "criticality"]
+    },
+    "blocks": {
+      "description": "Entity blocks progress of another entity",
+      "direction": "directed",
+      "strength": "strong",
+      "properties": ["blocker_type", "resolution_required"]
+    },
+    "relates_to": {
+      "description": "General relationship between entities",
+      "direction": "undirected",
+      "strength": "medium",
+      "properties": ["relationship_type", "confidence"]
+    },
+    "implements": {
+      "description": "Entity implements another entity",
+      "direction": "directed",
+      "strength": "strong",
+      "properties": ["implementation_type", "completeness"]
+    },
+    "influences": {
+      "description": "Entity influences another entity",
+      "direction": "directed",
+      "strength": "medium",
+      "properties": ["influence_type", "impact_level"]
+    },
+    "generates": {
+      "description": "Entity generates or creates another entity",
+      "direction": "directed",
+      "strength": "strong",
+      "properties": ["generation_type", "automation_level"]
+    },
+    "validates": {
+      "description": "Entity validates or verifies another entity",
+      "direction": "directed",
+      "strength": "medium",
+      "properties": ["validation_type", "success_criteria"]
+    },
+    "conflicts_with": {
+      "description": "Entity conflicts with another entity",
+      "direction": "undirected",
+      "strength": "strong",
+      "properties": ["conflict_type", "resolution_strategy"]
+    }
+  },
+  "nodes": {
+    "TEMPLATE-NODE-001": {
+      "id": "TEMPLATE-NODE-001",
+      "type": "knowledge",
+      "properties": {
+        "topic": "Template Knowledge Node",
+        "content": "This is a template knowledge node. Replace with actual project knowledge.",
+        "source": "system",
+        "confidence": 0.5,
+        "created": "2025-01-24T10:00:00Z",
+        "updated": "2025-01-24T10:00:00Z"
+      },
+      "tags": ["template", "example"],
+      "metadata": {
+        "importance": "low",
+        "frequency": 0,
+        "lastAccessed": "2025-01-24T10:00:00Z"
+      }
+    }
+  },
+  "relationships": {
+    "TEMPLATE-REL-001": {
+      "id": "TEMPLATE-REL-001",
+      "type": "relates_to",
+      "source": "TEMPLATE-NODE-001",
+      "target": "TEMPLATE-NODE-001",
+      "properties": {
+        "relationship_type": "self-reference",
+        "confidence": 1.0,
+        "created": "2025-01-24T10:00:00Z",
+        "strength": "weak"
+      },
+      "metadata": {
+        "importance": "low",
+        "frequency": 0,
+        "lastValidated": "2025-01-24T10:00:00Z"
+      }
+    }
+  },
+  "patterns": {
+    "taskPatterns": {
+      "taskDependencyChains": {
+        "description": "Common patterns in task dependencies",
+        "pattern": "task -> depends_on -> task -> depends_on -> task",
+        "frequency": 0,
+        "examples": [],
+        "insights": []
+      },
+      "bugResolutionPatterns": {
+        "description": "Common patterns in bug resolution workflows",
+        "pattern": "bug -> fixed_by -> task -> validates -> bug",
+        "frequency": 0,
+        "examples": [],
+        "insights": []
+      }
+    },
+    "sessionPatterns": {
+      "sessionContinuity": {
+        "description": "Patterns in session continuation and recovery",
+        "pattern": "session -> continues -> session -> works_on -> task",
+        "frequency": 0,
+        "examples": [],
+        "insights": []
+      },
+      "contextSwitching": {
+        "description": "Patterns in context switching between different work areas",
+        "pattern": "session -> works_on -> task -> relates_to -> component",
+        "frequency": 0,
+        "examples": [],
+        "insights": []
+      }
+    },
+    "knowledgePatterns": {
+      "decisionInfluence": {
+        "description": "How decisions influence other project elements",
+        "pattern": "decision -> influences -> component -> implements -> requirement",
+        "frequency": 0,
+        "examples": [],
+        "insights": []
+      },
+      "knowledgeEvolution": {
+        "description": "How knowledge builds upon previous knowledge",
+        "pattern": "knowledge -> builds_on -> knowledge -> validates -> decision",
+        "frequency": 0,
+        "examples": [],
+        "insights": []
+      }
+    }
+  },
+  "analytics": {
+    "centralityMetrics": {
+      "description": "Identify most important nodes based on connections",
+      "algorithms": ["betweenness", "closeness", "eigenvector"],
+      "updateFrequency": "daily",
+      "topNodes": []
+    },
+    "clusterAnalysis": {
+      "description": "Identify clusters of related entities",
+      "algorithms": ["community-detection", "modularity"],
+      "updateFrequency": "weekly",
+      "clusters": []
+    },
+    "pathAnalysis": {
+      "description": "Analyze paths between important entities",
+      "algorithms": ["shortest-path", "critical-path"],
+      "updateFrequency": "on-demand",
+      "criticalPaths": []
+    },
+    "influenceAnalysis": {
+      "description": "Analyze influence propagation through the graph",
+      "algorithms": ["influence-maximization", "cascade-analysis"],
+      "updateFrequency": "weekly",
+      "influenceScores": []
+    }
+  },
+  "queries": {
+    "commonQueries": {
+      "findRelatedTasks": {
+        "description": "Find all tasks related to a specific task",
+        "cypher": "MATCH (t:task)-[:relates_to|depends_on|blocks]-(related:task) WHERE t.id = $taskId RETURN related",
+        "parameters": ["taskId"]
+      },
+      "findBugCauses": {
+        "description": "Find potential causes of a bug",
+        "cypher": "MATCH (b:bug)<-[:caused_by]-(cause) WHERE b.id = $bugId RETURN cause",
+        "parameters": ["bugId"]
+      },
+      "findSessionContext": {
+        "description": "Find all context related to a session",
+        "cypher": "MATCH (s:session)-[:works_on|relates_to]-(context) WHERE s.id = $sessionId RETURN context",
+        "parameters": ["sessionId"]
+      },
+      "findDecisionImpact": {
+        "description": "Find all entities influenced by a decision",
+        "cypher": "MATCH (d:decision)-[:influences*1..3]->(influenced) WHERE d.id = $decisionId RETURN influenced",
+        "parameters": ["decisionId"]
+      },
+      "findKnowledgeGaps": {
+        "description": "Find areas with insufficient knowledge coverage",
+        "cypher": "MATCH (n) WHERE NOT (n)-[:validates|supports]-(:knowledge) RETURN n",
+        "parameters": []
+      }
+    },
+    "analyticalQueries": {
+      "findBottlenecks": {
+        "description": "Find entities that are blocking multiple other entities",
+        "cypher": "MATCH (n)-[:blocks]->(blocked) WITH n, count(blocked) as blockCount WHERE blockCount > 2 RETURN n, blockCount ORDER BY blockCount DESC",
+        "parameters": []
+      },
+      "findCriticalPath": {
+        "description": "Find the critical path through task dependencies",
+        "cypher": "MATCH path = (start:task)-[:depends_on*]->(end:task) WHERE NOT (start)<-[:depends_on]-() AND NOT (end)-[:depends_on]->() RETURN path ORDER BY length(path) DESC LIMIT 1",
+        "parameters": []
+      },
+      "findInfluentialDecisions": {
+        "description": "Find decisions with the highest influence on the project",
+        "cypher": "MATCH (d:decision)-[:influences*1..3]->(influenced) WITH d, count(influenced) as influenceCount RETURN d, influenceCount ORDER BY influenceCount DESC",
+        "parameters": []
+      }
+    }
+  },
+  "automation": {
+    "relationshipDetection": {
+      "enabled": true,
+      "rules": [
+        {
+          "name": "task-session-relationship",
+          "condition": "session works on task",
+          "action": "create works_on relationship",
+          "confidence": 0.9
+        },
+        {
+          "name": "bug-task-relationship",
+          "condition": "task fixes bug",
+          "action": "create fixed_by relationship",
+          "confidence": 0.95
+        },
+        {
+          "name": "decision-component-relationship",
+          "condition": "decision affects component",
+          "action": "create influences relationship",
+          "confidence": 0.8
+        }
+      ]
+    },
+    "knowledgeExtraction": {
+      "enabled": true,
+      "sources": ["session-logs", "task-descriptions", "bug-reports", "decision-records"],
+      "methods": ["nlp-analysis", "pattern-matching", "entity-recognition"],
+      "confidence_threshold": 0.7
+    },
+    "graphMaintenance": {
+      "enabled": true,
+      "tasks": [
+        "remove-orphaned-nodes",
+        "merge-duplicate-entities",
+        "update-relationship-strengths",
+        "archive-obsolete-knowledge"
+      ],
+      "frequency": "weekly"
+    }
+  },
+  "visualization": {
+    "layouts": {
+      "force-directed": {
+        "description": "Physics-based layout showing natural clustering",
+        "parameters": {
+          "repulsion": 1000,
+          "attraction": 0.1,
+          "damping": 0.9
+        }
+      },
+      "hierarchical": {
+        "description": "Tree-like layout showing dependencies",
+        "parameters": {
+          "direction": "top-down",
+          "levelSeparation": 100,
+          "nodeSeparation": 50
+        }
+      },
+      "circular": {
+        "description": "Circular layout grouping by type",
+        "parameters": {
+          "radius": 200,
+          "grouping": "by-type"
+        }
+      }
+    },
+    "filters": {
+      "byNodeType": {
+        "enabled": true,
+        "options": ["task", "bug", "session", "decision", "pattern", "knowledge", "component", "requirement"]
+      },
+      "byRelationshipType": {
+        "enabled": true,
+        "options": ["depends_on", "blocks", "relates_to", "implements", "influences", "generates", "validates", "conflicts_with"]
+      },
+      "byTimeRange": {
+        "enabled": true,
+        "options": ["last-day", "last-week", "last-month", "all-time"]
+      },
+      "byImportance": {
+        "enabled": true,
+        "options": ["critical", "high", "medium", "low"]
+      }
+    }
+  },
+  "integrations": {
+    "taskManagement": {
+      "enabled": true,
+      "syncTasks": true,
+      "trackDependencies": true,
+      "updateProgress": true
+    },
+    "sessionManagement": {
+      "enabled": true,
+      "trackSessions": true,
+      "linkContext": true,
+      "preserveRelationships": true
+    },
+    "bugTracking": {
+      "enabled": true,
+      "trackBugs": true,
+      "linkCauses": true,
+      "trackResolutions": true
+    },
+    "decisionTracking": {
+      "enabled": true,
+      "captureDecisions": true,
+      "trackInfluence": true,
+      "validateImplementation": true
+    }
+  },
+  "export": {
+    "formats": {
+      "graphml": {
+        "enabled": true,
+        "includeProperties": true,
+        "includeMetadata": false
+      },
+      "json": {
+        "enabled": true,
+        "includeProperties": true,
+        "includeMetadata": true
+      },
+      "csv": {
+        "enabled": true,
+        "separateFiles": true,
+        "includeHeaders": true
+      },
+      "cypher": {
+        "enabled": true,
+        "includeConstraints": true,
+        "includeIndexes": true
+      }
+    }
+  }
+} 

@@ -1,0 +1,515 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2025-01-24T10:00:00Z",
+    "description": "Intelligent automation and workflow management rules",
+    "totalRules": 0,
+    "activeRules": 0,
+    "systemVersion": "StarterKit v1.0"
+  },
+  "automationCategories": {
+    "taskManagement": {
+      "description": "Automated task creation, updates, and management",
+      "priority": "high",
+      "enabled": true,
+      "rules": [
+        "auto-task-generation",
+        "dependency-tracking",
+        "progress-monitoring",
+        "completion-detection"
+      ]
+    },
+    "bugTracking": {
+      "description": "Automated bug detection, triage, and resolution",
+      "priority": "critical",
+      "enabled": true,
+      "rules": [
+        "bug-detection",
+        "auto-triage",
+        "pattern-matching",
+        "resolution-automation"
+      ]
+    },
+    "sessionManagement": {
+      "description": "Automated session persistence and recovery",
+      "priority": "critical",
+      "enabled": true,
+      "rules": [
+        "auto-save",
+        "context-preservation",
+        "recovery-protocols",
+        "session-linking"
+      ]
+    },
+    "qualityAssurance": {
+      "description": "Automated quality checks and validation",
+      "priority": "high",
+      "enabled": true,
+      "rules": [
+        "code-validation",
+        "standard-enforcement",
+        "review-automation",
+        "compliance-checking"
+      ]
+    },
+    "knowledgeManagement": {
+      "description": "Automated knowledge capture and organization",
+      "priority": "medium",
+      "enabled": true,
+      "rules": [
+        "knowledge-extraction",
+        "pattern-recognition",
+        "relationship-mapping",
+        "insight-generation"
+      ]
+    }
+  },
+  "triggers": {
+    "fileModification": {
+      "description": "Triggered when project files are modified",
+      "events": ["file-created", "file-modified", "file-deleted"],
+      "conditions": {
+        "fileTypes": ["*.js", "*.jsx", "*.ts", "*.tsx", "*.php", "*.json", "*.md"],
+        "excludePaths": ["node_modules/", ".git/", "dist/", "build/"],
+        "minChangeSize": 10
+      },
+      "actions": [
+        "update-task-progress",
+        "trigger-quality-check",
+        "save-session-context",
+        "detect-patterns"
+      ]
+    },
+    "taskCompletion": {
+      "description": "Triggered when tasks are completed",
+      "events": ["task-completed", "milestone-reached"],
+      "conditions": {
+        "taskTypes": ["development", "debugging", "testing"],
+        "requiresValidation": true
+      },
+      "actions": [
+        "generate-follow-up-tasks",
+        "update-dependencies",
+        "trigger-quality-review",
+        "capture-knowledge"
+      ]
+    },
+    "errorDetection": {
+      "description": "Triggered when errors or issues are detected",
+      "events": ["error-logged", "test-failure", "performance-degradation"],
+      "conditions": {
+        "severity": ["medium", "high", "critical"],
+        "frequency": "more-than-once",
+        "impact": "user-facing"
+      },
+      "actions": [
+        "create-bug-report",
+        "auto-triage",
+        "notify-team",
+        "start-investigation"
+      ]
+    },
+    "sessionActivity": {
+      "description": "Triggered by AI session activities",
+      "events": ["session-started", "major-decision", "context-switch"],
+      "conditions": {
+        "sessionTypes": ["task-execution", "debugging", "planning"],
+        "activityLevel": "significant"
+      },
+      "actions": [
+        "save-context-snapshot",
+        "update-session-registry",
+        "link-related-entities",
+        "generate-insights"
+      ]
+    },
+    "timeBasedEvents": {
+      "description": "Triggered by time-based conditions",
+      "events": ["daily-check", "weekly-review", "deadline-approaching"],
+      "conditions": {
+        "schedules": ["daily-9am", "weekly-monday", "deadline-minus-24h"],
+        "workingHours": true
+      },
+      "actions": [
+        "generate-status-report",
+        "check-system-health",
+        "update-metrics",
+        "send-reminders"
+      ]
+    }
+  },
+  "workflows": {
+    "bugDetectionWorkflow": {
+      "description": "Automated workflow for bug detection and initial response",
+      "trigger": "errorDetection",
+      "steps": [
+        {
+          "name": "detect-error",
+          "action": "capture-error-details",
+          "timeout": "immediate",
+          "onFailure": "manual-intervention"
+        },
+        {
+          "name": "analyze-severity",
+          "action": "assess-impact-and-frequency",
+          "timeout": "30 seconds",
+          "onFailure": "default-to-medium-severity"
+        },
+        {
+          "name": "create-bug-report",
+          "action": "generate-structured-bug-report",
+          "timeout": "1 minute",
+          "onFailure": "create-minimal-report"
+        },
+        {
+          "name": "auto-triage",
+          "action": "assign-priority-and-owner",
+          "timeout": "2 minutes",
+          "onFailure": "queue-for-manual-triage"
+        },
+        {
+          "name": "notify-stakeholders",
+          "action": "send-notifications-based-on-severity",
+          "timeout": "immediate",
+          "onFailure": "log-notification-failure"
+        }
+      ],
+      "rollbackProcedure": "revert-to-manual-process",
+      "successCriteria": "bug-report-created-and-triaged"
+    },
+    "taskGenerationWorkflow": {
+      "description": "Automated workflow for intelligent task generation",
+      "trigger": "taskCompletion",
+      "steps": [
+        {
+          "name": "analyze-completion",
+          "action": "extract-completion-context",
+          "timeout": "1 minute",
+          "onFailure": "skip-analysis"
+        },
+        {
+          "name": "identify-follow-ups",
+          "action": "detect-required-follow-up-tasks",
+          "timeout": "2 minutes",
+          "onFailure": "use-template-tasks"
+        },
+        {
+          "name": "generate-tasks",
+          "action": "create-structured-tasks",
+          "timeout": "3 minutes",
+          "onFailure": "create-placeholder-tasks"
+        },
+        {
+          "name": "link-dependencies",
+          "action": "establish-task-relationships",
+          "timeout": "1 minute",
+          "onFailure": "manual-dependency-review"
+        },
+        {
+          "name": "schedule-tasks",
+          "action": "assign-priorities-and-timelines",
+          "timeout": "1 minute",
+          "onFailure": "default-scheduling"
+        }
+      ],
+      "rollbackProcedure": "remove-generated-tasks",
+      "successCriteria": "tasks-created-and-linked"
+    },
+    "qualityAssuranceWorkflow": {
+      "description": "Automated quality assurance and validation workflow",
+      "trigger": "fileModification",
+      "steps": [
+        {
+          "name": "validate-changes",
+          "action": "run-automated-validation-checks",
+          "timeout": "5 minutes",
+          "onFailure": "flag-for-manual-review"
+        },
+        {
+          "name": "check-standards",
+          "action": "verify-coding-standards-compliance",
+          "timeout": "2 minutes",
+          "onFailure": "generate-standards-report"
+        },
+        {
+          "name": "run-tests",
+          "action": "execute-relevant-automated-tests",
+          "timeout": "10 minutes",
+          "onFailure": "report-test-failures"
+        },
+        {
+          "name": "security-scan",
+          "action": "perform-security-vulnerability-scan",
+          "timeout": "5 minutes",
+          "onFailure": "flag-for-security-review"
+        },
+        {
+          "name": "generate-report",
+          "action": "create-quality-assessment-report",
+          "timeout": "1 minute",
+          "onFailure": "create-minimal-report"
+        }
+      ],
+      "rollbackProcedure": "revert-changes-if-critical-failure",
+      "successCriteria": "all-quality-checks-passed"
+    },
+    "sessionPersistenceWorkflow": {
+      "description": "Automated session context preservation and recovery",
+      "trigger": "sessionActivity",
+      "steps": [
+        {
+          "name": "capture-context",
+          "action": "extract-current-session-context",
+          "timeout": "30 seconds",
+          "onFailure": "capture-minimal-context"
+        },
+        {
+          "name": "save-snapshot",
+          "action": "create-context-snapshot",
+          "timeout": "1 minute",
+          "onFailure": "retry-with-compression"
+        },
+        {
+          "name": "update-registry",
+          "action": "update-session-registry",
+          "timeout": "30 seconds",
+          "onFailure": "queue-for-later-update"
+        },
+        {
+          "name": "link-entities",
+          "action": "establish-cross-references",
+          "timeout": "1 minute",
+          "onFailure": "skip-linking"
+        },
+        {
+          "name": "validate-persistence",
+          "action": "verify-context-can-be-recovered",
+          "timeout": "30 seconds",
+          "onFailure": "flag-persistence-issue"
+        }
+      ],
+      "rollbackProcedure": "restore-previous-snapshot",
+      "successCriteria": "context-successfully-persisted"
+    }
+  },
+  "rules": {
+    "taskAutomation": {
+      "autoTaskGeneration": {
+        "enabled": true,
+        "conditions": [
+          "task-completed",
+          "bug-resolved",
+          "milestone-reached",
+          "dependency-satisfied"
+        ],
+        "actions": [
+          "analyze-completion-context",
+          "identify-follow-up-requirements",
+          "generate-structured-tasks",
+          "establish-dependencies",
+          "assign-priorities"
+        ],
+        "parameters": {
+          "maxTasksPerTrigger": 5,
+          "requireHumanApproval": false,
+          "defaultPriority": "medium",
+          "autoAssign": true
+        }
+      },
+      "dependencyTracking": {
+        "enabled": true,
+        "conditions": [
+          "task-status-change",
+          "dependency-completion",
+          "blocker-resolution"
+        ],
+        "actions": [
+          "update-dependent-tasks",
+          "notify-stakeholders",
+          "adjust-timelines",
+          "trigger-next-phase"
+        ],
+        "parameters": {
+          "cascadeUpdates": true,
+          "notificationThreshold": "high-priority",
+          "autoUnblock": true
+        }
+      }
+    },
+    "bugAutomation": {
+      "autoDetection": {
+        "enabled": true,
+        "conditions": [
+          "error-threshold-exceeded",
+          "performance-degradation",
+          "test-failure-pattern",
+          "user-feedback-negative"
+        ],
+        "actions": [
+          "create-bug-report",
+          "analyze-error-patterns",
+          "assign-severity",
+          "route-to-appropriate-team"
+        ],
+        "parameters": {
+          "errorThreshold": 5,
+          "performanceThreshold": "20% degradation",
+          "patternDetectionWindow": "24 hours"
+        }
+      },
+      "autoTriage": {
+        "enabled": true,
+        "conditions": [
+          "bug-created",
+          "severity-assessment-complete",
+          "component-identified"
+        ],
+        "actions": [
+          "assign-priority",
+          "route-to-team",
+          "set-resolution-timeline",
+          "notify-stakeholders"
+        ],
+        "parameters": {
+          "triageTimeout": "15 minutes",
+          "escalationRules": "severity-based",
+          "autoAssignCritical": true
+        }
+      }
+    },
+    "qualityAutomation": {
+      "codeValidation": {
+        "enabled": true,
+        "conditions": [
+          "code-committed",
+          "pull-request-created",
+          "file-modified"
+        ],
+        "actions": [
+          "run-linting",
+          "check-formatting",
+          "validate-standards",
+          "run-security-scan"
+        ],
+        "parameters": {
+          "blockOnFailure": true,
+          "autoFix": "formatting-only",
+          "reportLevel": "detailed"
+        }
+      },
+      "testAutomation": {
+        "enabled": true,
+        "conditions": [
+          "code-changes-detected",
+          "deployment-triggered",
+          "schedule-based"
+        ],
+        "actions": [
+          "run-unit-tests",
+          "run-integration-tests",
+          "performance-testing",
+          "generate-coverage-report"
+        ],
+        "parameters": {
+          "testTimeout": "30 minutes",
+          "coverageThreshold": "80%",
+          "parallelExecution": true
+        }
+      }
+    },
+    "sessionAutomation": {
+      "autoSave": {
+        "enabled": true,
+        "conditions": [
+          "time-interval",
+          "significant-activity",
+          "context-change",
+          "user-request"
+        ],
+        "actions": [
+          "capture-context",
+          "save-snapshot",
+          "update-registry",
+          "validate-persistence"
+        ],
+        "parameters": {
+          "saveInterval": "30 seconds",
+          "compressionEnabled": true,
+          "maxSnapshotsPerSession": 100,
+          "retentionPeriod": "90 days"
+        }
+      },
+      "recoveryProtocols": {
+        "enabled": true,
+        "conditions": [
+          "session-termination",
+          "context-loss-detected",
+          "recovery-requested"
+        ],
+        "actions": [
+          "identify-last-session",
+          "load-context-snapshot",
+          "validate-recovery",
+          "resume-workflow"
+        ],
+        "parameters": {
+          "recoveryTimeout": "2 minutes",
+          "fallbackToEmergency": true,
+          "validateIntegrity": true
+        }
+      }
+    }
+  },
+  "monitoring": {
+    "systemHealth": {
+      "enabled": true,
+      "checkInterval": "5 minutes",
+      "metrics": [
+        "automation-success-rate",
+        "workflow-completion-time",
+        "error-rate",
+        "resource-usage"
+      ],
+      "alerts": {
+        "successRateBelow": "90%",
+        "errorRateAbove": "5%",
+        "workflowTimeoutAbove": "10 minutes"
+      }
+    },
+    "performanceMetrics": {
+      "enabled": true,
+      "trackingPeriod": "24 hours",
+      "metrics": [
+        "tasks-automated",
+        "bugs-auto-detected",
+        "sessions-preserved",
+        "quality-checks-passed"
+      ],
+      "reporting": {
+        "frequency": "daily",
+        "format": "json",
+        "includeInsights": true
+      }
+    }
+  },
+  "configuration": {
+    "globalSettings": {
+      "automationLevel": "high",
+      "failureHandling": "graceful-degradation",
+      "humanOverride": true,
+      "auditLogging": true
+    },
+    "environmentSettings": {
+      "development": {
+        "automationLevel": "medium",
+        "testingEnabled": true,
+        "debugMode": true
+      },
+      "production": {
+        "automationLevel": "high",
+        "testingEnabled": false,
+        "debugMode": false
+      }
+    }
+  }
+} 

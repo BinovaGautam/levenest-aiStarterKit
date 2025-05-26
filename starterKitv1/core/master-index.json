@@ -1,0 +1,241 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2025-01-24T10:00:00Z",
+    "description": "Master relational database for AI-optimized project management",
+    "totalDocuments": 0,
+    "totalTasks": 0,
+    "totalSessions": 0,
+    "systemVersion": "StarterKit v1.0",
+    "projectName": "[YOUR_PROJECT_NAME]",
+    "currentPhase": "[CURRENT_PHASE]",
+    "packageManager": "[yarn/npm/etc]",
+    "buildSystem": {
+      "packageManager": "[YOUR_PACKAGE_MANAGER]",
+      "nodeVersion": "[NODE_VERSION]",
+      "buildTool": "[BUILD_TOOL]",
+      "framework": "[FRAMEWORK]",
+      "cssFramework": "[CSS_FRAMEWORK]"
+    }
+  },
+  "entryPoints": {
+    "main": "projectDocs/README.md",
+    "sessions": "projectDocs/tracking/sessions/session-registry.json",
+    "tasks": "projectDocs/tasks/task-registry.json",
+    "knowledge": "projectDocs/knowledge/knowledge-graph.json",
+    "automation": "projectDocs/automation/automation-rules.json",
+    "currentWork": "projectDocs/tasks/active/",
+    "quickStart": "projectDocs/SETUP-GUIDE.md"
+  },
+  "systemComponents": {
+    "sessionManagement": {
+      "path": "projectDocs/tracking/sessions/",
+      "type": "core",
+      "priority": "critical",
+      "description": "Complete session persistence and recovery system",
+      "features": ["session-persistence", "context-recovery", "auto-save", "cross-session-learning"],
+      "aiTriggers": ["session", "recovery", "context", "continuity"],
+      "requiredFor": ["all AI interactions"],
+      "conversationTypes": ["all"]
+    },
+    "taskManagement": {
+      "path": "projectDocs/tasks/",
+      "type": "core", 
+      "priority": "critical",
+      "description": "Enhanced task management with relationships and automation",
+      "features": ["task-registry", "automated-generation", "dependency-tracking", "progress-monitoring"],
+      "aiTriggers": ["task", "todo", "work", "progress"],
+      "requiredFor": ["project management", "workflow automation"],
+      "conversationTypes": ["planning", "development", "task-management"]
+    },
+    "knowledgeManagement": {
+      "path": "projectDocs/knowledge/",
+      "type": "core",
+      "priority": "high",
+      "description": "Sophisticated knowledge graph and relationship mapping",
+      "features": ["knowledge-graph", "decision-tracking", "pattern-recognition", "lesson-learning"],
+      "aiTriggers": ["knowledge", "decision", "pattern", "learning"],
+      "requiredFor": ["decision making", "pattern recognition"],
+      "conversationTypes": ["planning", "architecture", "problem-solving"]
+    },
+    "automationFramework": {
+      "path": "projectDocs/automation/",
+      "type": "core",
+      "priority": "high",
+      "description": "Intelligent automation and workflow management",
+      "features": ["automated-workflows", "trigger-system", "validation-rules", "content-generation"],
+      "aiTriggers": ["automation", "workflow", "trigger", "generate"],
+      "requiredFor": ["workflow automation", "quality assurance"],
+      "conversationTypes": ["automation", "workflow", "quality-control"]
+    },
+    "bugTracking": {
+      "path": "projectDocs/tracking/bug-registry.json",
+      "type": "core",
+      "priority": "critical",
+      "description": "Critical bug tracking with immediate rectification protocols",
+      "features": ["bug-registry", "pattern-detection", "auto-resolution", "prevention-system"],
+      "aiTriggers": ["bug", "error", "issue", "problem", "fix"],
+      "requiredFor": ["quality assurance", "issue resolution"],
+      "conversationTypes": ["debugging", "troubleshooting", "quality-control"]
+    },
+    "analytics": {
+      "path": "projectDocs/analytics/",
+      "type": "enhancement",
+      "priority": "medium",
+      "description": "Real-time intelligence and predictive analytics",
+      "features": ["dashboards", "reports", "predictions", "insights"],
+      "aiTriggers": ["analytics", "metrics", "insights", "reports"],
+      "requiredFor": ["project monitoring", "predictive analysis"],
+      "conversationTypes": ["analysis", "reporting", "monitoring"]
+    }
+  },
+  "aiAgents": {
+    "TaskManager": {
+      "specialization": "task-management",
+      "capabilities": ["task-creation", "dependency-tracking", "progress-monitoring", "automation"],
+      "triggerKeywords": ["task", "todo", "work", "progress", "deadline"],
+      "requiredDocuments": ["task-registry", "automation-rules", "session-registry"],
+      "conversationTypes": ["task-management", "planning", "workflow"]
+    },
+    "BugHunter": {
+      "specialization": "bug-detection-resolution",
+      "capabilities": ["bug-detection", "pattern-analysis", "auto-resolution", "prevention"],
+      "triggerKeywords": ["bug", "error", "issue", "problem", "fix", "debug"],
+      "requiredDocuments": ["bug-registry", "troubleshooting", "patterns"],
+      "conversationTypes": ["debugging", "troubleshooting", "quality-control"]
+    },
+    "KnowledgeKeeper": {
+      "specialization": "knowledge-management",
+      "capabilities": ["knowledge-mapping", "decision-tracking", "pattern-recognition", "learning"],
+      "triggerKeywords": ["knowledge", "decision", "pattern", "learning", "architecture"],
+      "requiredDocuments": ["knowledge-graph", "decisions", "patterns", "lessons-learned"],
+      "conversationTypes": ["planning", "architecture", "knowledge-management"]
+    },
+    "QualityGuardian": {
+      "specialization": "quality-assurance",
+      "capabilities": ["code-review", "standard-enforcement", "automation-validation", "quality-monitoring"],
+      "triggerKeywords": ["quality", "standards", "review", "validation", "compliance"],
+      "requiredDocuments": ["coding-standards", "validation-rules", "quality-metrics"],
+      "conversationTypes": ["code-review", "quality-assurance", "standards-enforcement"]
+    },
+    "SessionManager": {
+      "specialization": "session-continuity",
+      "capabilities": ["session-persistence", "context-recovery", "cross-session-learning", "state-management"],
+      "triggerKeywords": ["session", "recovery", "context", "continuity", "resume"],
+      "requiredDocuments": ["session-registry", "recovery-protocols", "context-snapshots"],
+      "conversationTypes": ["session-management", "recovery", "continuity"]
+    }
+  },
+  "queryHelpers": {
+    "byComponent": {
+      "sessions": ["sessionManagement", "SessionManager"],
+      "tasks": ["taskManagement", "TaskManager"],
+      "bugs": ["bugTracking", "BugHunter"],
+      "knowledge": ["knowledgeManagement", "KnowledgeKeeper"],
+      "quality": ["QualityGuardian"],
+      "automation": ["automationFramework"]
+    },
+    "byPriority": {
+      "critical": ["sessionManagement", "taskManagement", "bugTracking"],
+      "high": ["knowledgeManagement", "automationFramework"],
+      "medium": ["analytics"],
+      "low": []
+    },
+    "byConversationType": {
+      "session-management": ["sessionManagement", "SessionManager"],
+      "task-management": ["taskManagement", "TaskManager"],
+      "debugging": ["bugTracking", "BugHunter"],
+      "planning": ["knowledgeManagement", "KnowledgeKeeper", "taskManagement"],
+      "quality-control": ["QualityGuardian", "bugTracking"],
+      "automation": ["automationFramework"],
+      "analysis": ["analytics"]
+    },
+    "byKeywords": {
+      "session": ["sessionManagement", "SessionManager"],
+      "task": ["taskManagement", "TaskManager"],
+      "bug": ["bugTracking", "BugHunter"],
+      "knowledge": ["knowledgeManagement", "KnowledgeKeeper"],
+      "quality": ["QualityGuardian"],
+      "automation": ["automationFramework"],
+      "analytics": ["analytics"]
+    }
+  },
+  "conversationRules": {
+    "alwaysInclude": ["sessionManagement", "taskManagement"],
+    "componentBasedInclusion": true,
+    "keywordTriggered": true,
+    "dependencyChaining": true,
+    "maxDocumentsPerConversation": 8,
+    "priorityWeighting": {
+      "critical": 10,
+      "high": 7,
+      "medium": 4,
+      "low": 1
+    },
+    "sessionPersistence": {
+      "enabled": true,
+      "autoSave": true,
+      "recoveryProtocols": ["quick", "full", "emergency"],
+      "contextDepth": "full"
+    }
+  },
+  "systemHealth": {
+    "status": "initializing",
+    "lastCheck": "2025-01-24T10:00:00Z",
+    "components": {
+      "sessionManagement": "ready",
+      "taskManagement": "ready", 
+      "knowledgeManagement": "ready",
+      "automationFramework": "ready",
+      "bugTracking": "ready",
+      "analytics": "ready"
+    },
+    "metrics": {
+      "totalSessions": 0,
+      "activeTasks": 0,
+      "resolvedBugs": 0,
+      "automationSuccess": "100%",
+      "systemUptime": "100%"
+    }
+  },
+  "extensionPoints": {
+    "customAgents": {
+      "enabled": true,
+      "path": "projectDocs/extensions/plugins/",
+      "configPath": "projectDocs/extensions/custom-fields/"
+    },
+    "integrations": {
+      "enabled": true,
+      "path": "projectDocs/extensions/integrations/",
+      "supportedTypes": ["api", "webhook", "database", "file-system"]
+    },
+    "customFields": {
+      "enabled": true,
+      "path": "projectDocs/extensions/custom-fields/",
+      "types": ["task-fields", "session-fields", "knowledge-fields"]
+    },
+    "hooks": {
+      "enabled": true,
+      "path": "projectDocs/extensions/hooks/",
+      "events": ["task-created", "session-started", "bug-detected", "automation-triggered"]
+    }
+  },
+  "templates": {
+    "projectSetup": {
+      "path": "projectDocs/templates/project-setup.json",
+      "description": "New project initialization template"
+    },
+    "sessionTypes": {
+      "path": "projectDocs/templates/session-types.json",
+      "description": "Different session type templates"
+    },
+    "taskTypes": {
+      "path": "projectDocs/templates/task-types.json", 
+      "description": "Task templates for different work types"
+    },
+    "automationWorkflows": {
+      "path": "projectDocs/templates/automation-workflows.json",
+      "description": "Pre-built automation workflow templates"
+    }
+  }
+} 

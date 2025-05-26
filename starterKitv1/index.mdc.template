@@ -1,0 +1,62 @@
+# @index.mdc - AI Agent Reference Point
+
+## Project Management System Location
+- **Main Directory**: `projectDocs/`
+- **Master Index**: `projectDocs/core/master-index.json`
+- **Session Registry**: `projectDocs/tracking/sessions/session-registry.json`
+- **Current Tasks**: `projectDocs/tasks/task-registry.json`
+
+## AI Agent Instructions
+1. **Always start here**: Check this file first for project context
+2. **Session Management**: Use session persistence system for continuity
+3. **Documentation**: Everything is connected - follow relationships
+4. **Standards**: Maintain zero-tolerance quality standards
+
+## Quick Commands
+- **New Session**: "Initialize new session for [task] - SESSION-{YYMMDD}-{XXX}"
+- **Recover Session**: "Recover session SESSION-{ID} and continue from last checkpoint"
+- **Emergency Recovery**: "Emergency recovery - load critical project context for [issue]"
+
+## Project Context
+- **Project Name**: [YOUR_PROJECT_NAME]
+- **Current Phase**: [CURRENT_PHASE]
+- **Technology Stack**: [YOUR_TECH_STACK]
+- **Package Manager**: [yarn/npm/etc]
+
+## Last Updated
+- **Date**: [UPDATE_DATE]
+- **Session**: [LAST_SESSION_ID]
+- **Status**: [PROJECT_STATUS]
+
+## System Health
+- **Session Persistence**: ✅ Active
+- **Task Management**: ✅ Active
+- **Bug Tracking**: ✅ Active
+- **Knowledge Management**: ✅ Active
+- **Automation**: ✅ Active
+
+## Quick Start Commands
+
+### Initialize New Project
+```
+"Initialize new session for [PROJECT_NAME] setup - SESSION-250124-001. Load project context from index.mdc and setup new project management system."
+```
+
+### Resume Work
+```
+"Recover session SESSION-[ID] and continue from last checkpoint"
+```
+
+### Emergency Recovery
+```
+"Emergency recovery - load critical project context for [ISSUE_DESCRIPTION]"
+```
+
+### Project Health Check
+```
+"Analyze project health using projectDocs system and provide status report"
+```
+
+---
+
+**This file is the entry point for all AI agent interactions. Keep it updated with current project status.** 

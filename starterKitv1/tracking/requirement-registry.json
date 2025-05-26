@@ -1,0 +1,521 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2025-01-24T10:00:00Z",
+    "description": "Comprehensive requirement tracking and traceability system",
+    "totalRequirements": 0,
+    "activeRequirements": 0,
+    "completedRequirements": 0,
+    "systemVersion": "StarterKit v1.0"
+  },
+  "requirementTypes": {
+    "functional": {
+      "description": "What the system must do - features and functionality",
+      "priority": "high",
+      "mappingTargets": ["tasks", "knowledge", "testing"],
+      "validationRequired": true,
+      "traceabilityLevel": "detailed"
+    },
+    "non-functional": {
+      "description": "How the system must perform - quality attributes",
+      "priority": "high",
+      "mappingTargets": ["automation", "analytics", "validation"],
+      "validationRequired": true,
+      "traceabilityLevel": "detailed"
+    },
+    "technical": {
+      "description": "Implementation constraints and technical specifications",
+      "priority": "medium",
+      "mappingTargets": ["architecture", "automation", "knowledge"],
+      "validationRequired": true,
+      "traceabilityLevel": "moderate"
+    },
+    "business": {
+      "description": "Business objectives and organizational needs",
+      "priority": "critical",
+      "mappingTargets": ["knowledge", "analytics", "phases"],
+      "validationRequired": true,
+      "traceabilityLevel": "high-level"
+    }
+  },
+  "requirementStatuses": {
+    "draft": {
+      "description": "Initial requirement capture, not yet analyzed",
+      "color": "gray",
+      "nextActions": ["analyze", "classify", "stakeholder-review"]
+    },
+    "analyzed": {
+      "description": "Requirement analyzed and broken down",
+      "color": "blue",
+      "nextActions": ["map-components", "estimate-effort", "approve"]
+    },
+    "approved": {
+      "description": "Requirement approved for implementation",
+      "color": "green",
+      "nextActions": ["create-tasks", "assign-phase", "start-implementation"]
+    },
+    "in-progress": {
+      "description": "Implementation in progress",
+      "color": "yellow",
+      "nextActions": ["track-progress", "validate-implementation", "test"]
+    },
+    "implemented": {
+      "description": "Implementation complete, ready for testing",
+      "color": "orange",
+      "nextActions": ["test", "validate", "deploy"]
+    },
+    "validated": {
+      "description": "Requirement validated and tested",
+      "color": "purple",
+      "nextActions": ["deploy", "close", "document-lessons"]
+    },
+    "completed": {
+      "description": "Requirement fully implemented and deployed",
+      "color": "green",
+      "nextActions": ["monitor", "maintain", "archive"]
+    },
+    "cancelled": {
+      "description": "Requirement cancelled or no longer needed",
+      "color": "red",
+      "nextActions": ["archive", "document-reason"]
+    }
+  },
+  "requirements": {
+    "REQ-TEMPLATE-001": {
+      "id": "REQ-TEMPLATE-001",
+      "title": "Template Requirement - Replace with Actual Requirements",
+      "description": "This is a template requirement. Replace with your actual project requirements.",
+      "type": "functional",
+      "status": "draft",
+      "priority": "low",
+      "created": "2025-01-24T10:00:00Z",
+      "updated": "2025-01-24T10:00:00Z",
+      "source": "template",
+      "stakeholders": {
+        "primary": ["template-user"],
+        "secondary": ["template-team"],
+        "approvers": ["template-lead"]
+      },
+      "acceptanceCriteria": [
+        "Template criterion 1",
+        "Template criterion 2",
+        "Template criterion 3"
+      ],
+      "businessValue": "Template business value",
+      "riskLevel": "low",
+      "estimatedEffort": "1 hour",
+      "actualEffort": "0 hours",
+      "dependencies": [],
+      "blockers": [],
+      "relatedRequirements": [],
+      "mapping": {
+        "tasks": [],
+        "sessions": [],
+        "knowledge": [],
+        "automation": [],
+        "phases": [],
+        "documentation": []
+      },
+      "traceability": {
+        "implementationTasks": [],
+        "testCases": [],
+        "documentation": [],
+        "decisions": [],
+        "validationResults": []
+      },
+      "progress": {
+        "analysisComplete": false,
+        "tasksCreated": false,
+        "implementationStarted": false,
+        "testingComplete": false,
+        "validationComplete": false,
+        "deploymentComplete": false,
+        "overallCompletion": 0
+      }
+    }
+  },
+  "mappingRules": {
+    "functional-requirements": {
+      "primaryTargets": [
+        {
+          "component": "tasks/task-registry.json",
+          "mapping": "create-implementation-tasks",
+          "required": true
+        },
+        {
+          "component": "knowledge/patterns/",
+          "mapping": "capture-functional-patterns",
+          "required": false
+        },
+        {
+          "component": "tasks/testing/",
+          "mapping": "create-test-tasks",
+          "required": true
+        }
+      ],
+      "secondaryTargets": [
+        {
+          "component": "documentation/user-stories/",
+          "mapping": "document-user-stories",
+          "required": false
+        },
+        {
+          "component": "automation/validators/",
+          "mapping": "create-validation-rules",
+          "required": false
+        }
+      ]
+    },
+    "non-functional-requirements": {
+      "primaryTargets": [
+        {
+          "component": "automation/automation-rules.json",
+          "mapping": "create-quality-rules",
+          "required": true
+        },
+        {
+          "component": "analytics/dashboards/",
+          "mapping": "create-monitoring-dashboards",
+          "required": true
+        },
+        {
+          "component": "automation/validators/",
+          "mapping": "create-performance-validators",
+          "required": true
+        }
+      ],
+      "secondaryTargets": [
+        {
+          "component": "tracking/metrics/",
+          "mapping": "define-performance-metrics",
+          "required": false
+        }
+      ]
+    },
+    "technical-requirements": {
+      "primaryTargets": [
+        {
+          "component": "documentation/architecture.md",
+          "mapping": "update-architecture-documentation",
+          "required": true
+        },
+        {
+          "component": "core/master-index.json",
+          "mapping": "update-system-configuration",
+          "required": true
+        },
+        {
+          "component": "knowledge/decisions/",
+          "mapping": "document-technical-decisions",
+          "required": true
+        }
+      ],
+      "secondaryTargets": [
+        {
+          "component": "automation/workflows/",
+          "mapping": "create-technical-workflows",
+          "required": false
+        }
+      ]
+    },
+    "business-requirements": {
+      "primaryTargets": [
+        {
+          "component": "knowledge/decisions/business-requirements/",
+          "mapping": "document-business-decisions",
+          "required": true
+        },
+        {
+          "component": "analytics/dashboards/business-metrics/",
+          "mapping": "create-business-dashboards",
+          "required": true
+        },
+        {
+          "component": "phases/phase-registry.json",
+          "mapping": "assign-to-business-phases",
+          "required": true
+        }
+      ],
+      "secondaryTargets": [
+        {
+          "component": "automation/validators/business-rules/",
+          "mapping": "create-business-rule-validators",
+          "required": false
+        }
+      ]
+    }
+  },
+  "automation": {
+    "requirementAnalysis": {
+      "enabled": true,
+      "autoClassification": {
+        "enabled": true,
+        "confidenceThreshold": 0.8,
+        "rules": [
+          {
+            "keywords": ["user", "interface", "UI", "UX", "screen", "page"],
+            "classification": "functional-ui",
+            "priority": "high",
+            "mappingTargets": ["tasks", "knowledge", "testing"]
+          },
+          {
+            "keywords": ["API", "endpoint", "service", "integration", "data"],
+            "classification": "functional-api",
+            "priority": "high",
+            "mappingTargets": ["tasks", "automation", "testing"]
+          },
+          {
+            "keywords": ["performance", "speed", "response time", "throughput", "scalability"],
+            "classification": "non-functional-performance",
+            "priority": "medium",
+            "mappingTargets": ["automation", "analytics", "validation"]
+          },
+          {
+            "keywords": ["security", "authentication", "authorization", "encryption", "privacy"],
+            "classification": "non-functional-security",
+            "priority": "critical",
+            "mappingTargets": ["automation", "validation", "knowledge"]
+          },
+          {
+            "keywords": ["database", "storage", "backup", "migration", "schema"],
+            "classification": "technical-data",
+            "priority": "high",
+            "mappingTargets": ["architecture", "automation", "knowledge"]
+          },
+          {
+            "keywords": ["revenue", "cost", "ROI", "business value", "market", "customer"],
+            "classification": "business-value",
+            "priority": "critical",
+            "mappingTargets": ["knowledge", "analytics", "phases"]
+          }
+        ]
+      },
+      "autoMapping": {
+        "enabled": true,
+        "rules": [
+          {
+            "requirementType": "functional",
+            "autoCreateTasks": true,
+            "autoCreateTests": true,
+            "autoCreateDocumentation": false
+          },
+          {
+            "requirementType": "non-functional",
+            "autoCreateValidators": true,
+            "autoCreateMonitoring": true,
+            "autoCreateMetrics": true
+          },
+          {
+            "requirementType": "technical",
+            "autoUpdateArchitecture": true,
+            "autoCreateDecisions": true,
+            "autoCreateWorkflows": false
+          },
+          {
+            "requirementType": "business",
+            "autoCreateDecisions": true,
+            "autoCreateDashboards": true,
+            "autoAssignPhases": true
+          }
+        ]
+      },
+      "autoValidation": {
+        "enabled": true,
+        "checks": [
+          "completeness-check",
+          "consistency-check",
+          "dependency-validation",
+          "stakeholder-approval",
+          "technical-feasibility"
+        ]
+      }
+    },
+    "traceabilityGeneration": {
+      "enabled": true,
+      "autoLinking": {
+        "requirements-to-tasks": true,
+        "requirements-to-tests": true,
+        "requirements-to-documentation": true,
+        "requirements-to-decisions": true
+      },
+      "coverageTracking": {
+        "enabled": true,
+        "thresholds": {
+          "taskCoverage": 90,
+          "testCoverage": 85,
+          "documentationCoverage": 80
+        }
+      }
+    }
+  },
+  "templates": {
+    "functionalRequirement": {
+      "type": "functional",
+      "priority": "medium",
+      "estimatedEffort": "8 hours",
+      "mapping": {
+        "tasks": "auto-generate",
+        "testing": "auto-generate",
+        "documentation": "manual"
+      },
+      "traceability": {
+        "implementationTasks": "required",
+        "testCases": "required",
+        "documentation": "optional"
+      }
+    },
+    "nonFunctionalRequirement": {
+      "type": "non-functional",
+      "priority": "high",
+      "estimatedEffort": "4 hours",
+      "mapping": {
+        "automation": "auto-generate",
+        "analytics": "auto-generate",
+        "validation": "auto-generate"
+      },
+      "traceability": {
+        "validators": "required",
+        "metrics": "required",
+        "monitoring": "required"
+      }
+    },
+    "technicalRequirement": {
+      "type": "technical",
+      "priority": "high",
+      "estimatedEffort": "6 hours",
+      "mapping": {
+        "architecture": "manual-update",
+        "decisions": "auto-generate",
+        "knowledge": "auto-generate"
+      },
+      "traceability": {
+        "architectureUpdates": "required",
+        "decisions": "required",
+        "implementation": "optional"
+      }
+    },
+    "businessRequirement": {
+      "type": "business",
+      "priority": "critical",
+      "estimatedEffort": "2 hours",
+      "mapping": {
+        "knowledge": "auto-generate",
+        "analytics": "auto-generate",
+        "phases": "manual-assign"
+      },
+      "traceability": {
+        "businessDecisions": "required",
+        "metrics": "required",
+        "phases": "required"
+      }
+    }
+  },
+  "workflows": {
+    "requirementIntake": {
+      "description": "Process for capturing and initial analysis of new requirements",
+      "steps": [
+        "capture-requirement",
+        "initial-classification",
+        "stakeholder-identification",
+        "priority-assessment",
+        "dependency-analysis",
+        "effort-estimation",
+        "approval-workflow"
+      ],
+      "automation": {
+        "autoClassification": true,
+        "autoStakeholderNotification": true,
+        "autoPriorityAssessment": false,
+        "autoApproval": false
+      }
+    },
+    "requirementAnalysis": {
+      "description": "Detailed analysis and breakdown of approved requirements",
+      "steps": [
+        "detailed-analysis",
+        "component-mapping",
+        "task-generation",
+        "test-planning",
+        "documentation-planning",
+        "phase-assignment",
+        "resource-allocation"
+      ],
+      "automation": {
+        "autoComponentMapping": true,
+        "autoTaskGeneration": true,
+        "autoTestPlanning": true,
+        "autoPhaseAssignment": false
+      }
+    },
+    "implementationTracking": {
+      "description": "Track implementation progress and validate completion",
+      "steps": [
+        "implementation-monitoring",
+        "progress-tracking",
+        "quality-validation",
+        "testing-validation",
+        "stakeholder-review",
+        "completion-verification",
+        "lessons-learned-capture"
+      ],
+      "automation": {
+        "autoProgressTracking": true,
+        "autoQualityValidation": true,
+        "autoCompletionDetection": true,
+        "autoLessonsCapture": true
+      }
+    }
+  },
+  "metrics": {
+    "requirementQuality": {
+      "completenessScore": "0%",
+      "clarityScore": "0%",
+      "testabilityScore": "0%",
+      "traceabilityScore": "0%"
+    },
+    "implementationEfficiency": {
+      "timeToImplementation": "0 hours",
+      "estimationAccuracy": "0%",
+      "scopeCreepRate": "0%",
+      "defectRate": "0%"
+    },
+    "stakeholderSatisfaction": {
+      "approvalRate": "0%",
+      "changeRequestRate": "0%",
+      "satisfactionScore": "0%",
+      "deliveryAccuracy": "0%"
+    },
+    "traceability": {
+      "requirementCoverage": "0%",
+      "taskCoverage": "0%",
+      "testCoverage": "0%",
+      "documentationCoverage": "0%"
+    }
+  },
+  "integrations": {
+    "taskManagement": {
+      "enabled": true,
+      "autoCreateTasks": true,
+      "linkRequirementsToTasks": true,
+      "trackImplementationProgress": true
+    },
+    "sessionManagement": {
+      "enabled": true,
+      "trackRequirementSessions": true,
+      "linkAnalysisSessions": true,
+      "preserveRequirementContext": true
+    },
+    "knowledgeManagement": {
+      "enabled": true,
+      "captureRequirementKnowledge": true,
+      "linkToDecisions": true,
+      "generatePatterns": true
+    },
+    "analytics": {
+      "enabled": true,
+      "trackRequirementMetrics": true,
+      "generateInsights": true,
+      "predictiveAnalysis": true
+    }
+  }
+} 

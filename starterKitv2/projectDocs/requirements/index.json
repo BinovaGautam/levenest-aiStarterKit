@@ -1,0 +1,229 @@
+{
+  "module": {
+    "name": "requirements",
+    "version": "2.0",
+    "description": "Requirement lifecycle management with quality gates and traceability",
+    "parentSystem": "../master-index.json"
+  },
+
+  "directoryStructure": {
+    "initial/": {
+      "purpose": "First-pass requirement gathering and discovery",
+      "fileTypes": ["requirement-draft", "user-story-initial", "stakeholder-interview"],
+      "autoRoute": {
+        "patterns": ["initial", "draft", "discovery", "brainstorm"],
+        "confidence": 0.9
+      }
+    },
+    "refined/": {
+      "purpose": "Processed, validated requirements with clear acceptance criteria",
+      "fileTypes": ["requirement-spec", "user-story-final", "acceptance-criteria"],
+      "autoRoute": {
+        "patterns": ["refined", "final", "spec", "REQ-[0-9]+"],
+        "confidence": 0.95
+      }
+    },
+    "pivots/": {
+      "purpose": "Requirement changes, modifications, and scope adjustments",
+      "fileTypes": ["requirement-change", "scope-change", "pivot-analysis"],
+      "autoRoute": {
+        "patterns": ["change", "pivot", "modification", "scope-adjustment"],
+        "confidence": 0.85
+      }
+    },
+    "mistakes/": {
+      "purpose": "Failed requirements, lessons learned, anti-patterns",
+      "fileTypes": ["failed-requirement", "lesson-learned", "requirement-mistake"],
+      "autoRoute": {
+        "patterns": ["failed", "mistake", "lesson", "anti-pattern", "problem"],
+        "confidence": 0.8
+      }
+    },
+    "templates/": {
+      "purpose": "Template files for requirement documentation",
+      "fileTypes": ["template"],
+      "managed": true
+    }
+  },
+
+  "contentAnalysisPatterns": {
+    "filenameKeywords": [
+      "requirement", "req", "user-story", "story", "feature", 
+      "acceptance-criteria", "spec", "specification", "need"
+    ],
+    "contentKeywords": [
+      "shall", "should", "must", "will", "user needs", "acceptance criteria",
+      "given when then", "as a user", "business rule", "constraint"
+    ],
+    "yamlFrontmatterFields": [
+      "type: requirement", "category: requirements", "template: requirement"
+    ]
+  },
+
+  "qualityGates": {
+    "stakeholderValidation": {
+      "required": true,
+      "patterns": {
+        "invalid": ["users", "people", "customers", "everyone"],
+        "valid": ["premium-subscribers", "admin-users", "content-creators"]
+      },
+      "errorMessage": "Stakeholder must be specific, not generic like 'users'"
+    },
+    "acceptanceCriteria": {
+      "required": true,
+      "minimumCount": 1,
+      "patterns": {
+        "measurable": ["<[0-9]+", ">=[0-9]+", "within [0-9]+ seconds", "exactly [0-9]+"],
+        "vague": ["fast", "easy", "simple", "good", "secure"]
+      },
+      "errorMessage": "Acceptance criteria must be specific and measurable"
+    },
+    "businessValue": {
+      "required": true,
+      "patterns": ["business value", "roi", "benefit", "cost savings", "revenue"],
+      "errorMessage": "Business value must be clearly articulated"
+    },
+    "dependencies": {
+      "checkReferences": true,
+      "patterns": ["depends on", "requires", "REQ-[0-9]+", "blocked by"],
+      "autoDetect": true
+    }
+  },
+
+  "templates": {
+    "requirement-template.md": {
+      "description": "Comprehensive requirement documentation with AI validation",
+      "sections": [
+        "classification", "stakeholder", "description", "rationale", 
+        "acceptance_criteria", "priority", "dependencies", "success_metrics"
+      ],
+      "validation": "strict"
+    },
+    "user-story-template.md": {
+      "description": "User story format with acceptance criteria",
+      "sections": ["story", "acceptance_criteria", "definition_of_done"],
+      "validation": "moderate"
+    }
+  },
+
+  "workflowRules": {
+    "progression": {
+      "initial → refined": {
+        "triggers": ["stakeholder_validated", "acceptance_criteria_defined"],
+        "requiredFields": ["stakeholder", "acceptance_criteria", "business_value"]
+      },
+      "refined → implementation": {
+        "triggers": ["requirement_approved", "dependencies_resolved"],
+        "creates": "tasks/pending/implement-[REQ-ID].md"
+      },
+      "any → pivots": {
+        "triggers": ["scope_change_request", "requirement_modification"],
+        "requiredFields": ["change_reason", "impact_analysis"]
+      },
+      "any → mistakes": {
+        "triggers": ["requirement_failed", "validation_failed"],
+        "requiredFields": ["failure_reason", "lesson_learned", "prevention_strategy"]
+      }
+    }
+  },
+
+  "relationshipMappings": {
+    "outbound": {
+      "implements": {
+        "target": "tasks",
+        "confidence": 0.95,
+        "autoDetect": "REQ-[0-9]+ referenced in task content",
+        "description": "Tasks that implement this requirement"
+      },
+      "tests": {
+        "target": "execution/testing",
+        "confidence": 0.85,
+        "autoDetect": "REQ-[0-9]+ in test file names or content",
+        "description": "Tests that validate this requirement"
+      },
+      "influences": {
+        "target": "decisions",
+        "confidence": 0.7,
+        "autoDetect": "REQ-[0-9]+ mentioned in decision context",
+        "description": "Decisions influenced by this requirement"
+      }
+    },
+    "inbound": {
+      "derives_from": {
+        "source": "knowledge/patterns",
+        "confidence": 0.8,
+        "description": "Patterns that led to this requirement"
+      },
+      "impacts": {
+        "source": "decisions",
+        "confidence": 0.85,
+        "description": "Decisions that impact this requirement"
+      }
+    }
+  },
+
+  "metricsTracking": {
+    "qualityMetrics": {
+      "stakeholderSpecificity": "percentage of requirements with specific stakeholders",
+      "acceptanceCriteriaCompleteness": "percentage with measurable criteria", 
+      "businessValueClarity": "percentage with quantified business value",
+      "dependencyMapping": "percentage with identified dependencies"
+    },
+    "velocityMetrics": {
+      "timeInInitial": "average days from creation to refinement",
+      "changeRate": "percentage of requirements that pivot",
+      "implementationSuccess": "percentage successfully implemented"
+    },
+    "learningMetrics": {
+      "mistakeReduction": "reduction in repeated requirement mistakes",
+      "patternReuse": "percentage using established patterns"
+    }
+  },
+
+  "automationRules": {
+    "autoTagging": {
+      "functional": ["implements", "performs", "calculates", "processes"],
+      "non-functional": ["performance", "security", "scalability", "usability"],
+      "business": ["revenue", "cost", "compliance", "strategy"]
+    },
+    "autoLinking": {
+      "taskCreation": {
+        "trigger": "requirement moves to refined/",
+        "action": "create implementation task in tasks/pending/",
+        "template": "implement-requirement-task.md"
+      },
+      "testCreation": {
+        "trigger": "acceptance criteria defined",
+        "action": "create test specification in execution/testing/",
+        "template": "requirement-test-spec.md"
+      }
+    },
+    "impactAnalysis": {
+      "requirementChange": {
+        "analyze": ["dependent_requirements", "implementing_tasks", "test_cases"],
+        "notify": ["stakeholders", "implementation_team"],
+        "document": "change_impact_analysis.md"
+      }
+    }
+  },
+
+  "learningSystem": {
+    "patternRecognition": {
+      "successPatterns": {
+        "track": ["stakeholder_specificity_level", "criteria_measurability", "business_value_clarity"],
+        "threshold": 0.9,
+        "action": "promote_to_best_practices"
+      },
+      "failurePatterns": {
+        "track": ["vague_stakeholders", "unmeasurable_criteria", "missing_dependencies"],
+        "threshold": 0.8,
+        "action": "add_to_anti_patterns"
+      }
+    },
+    "templateEvolution": {
+      "successfulSections": "add to future templates",
+      "problemAreas": "enhance validation rules",
+      "userFeedback": "incorporate improvements"
+    }
+  }
+} 

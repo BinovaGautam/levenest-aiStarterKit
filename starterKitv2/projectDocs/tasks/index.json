@@ -1,0 +1,299 @@
+{
+  "module": {
+    "name": "tasks",
+    "version": "2.0", 
+    "description": "Automated task lifecycle management with intelligent progression and blocking detection",
+    "parentSystem": "../master-index.json"
+  },
+
+  "directoryStructure": {
+    "pending/": {
+      "purpose": "Tasks created but not yet started",
+      "status": "pending",
+      "autoRoute": {
+        "patterns": ["pending", "todo", "not-started", "created"],
+        "confidence": 0.9
+      },
+      "progressionRules": {
+        "to_active": ["assignee_confirmed", "dependencies_resolved", "ready_to_start"]
+      }
+    },
+    "active/": {
+      "purpose": "Tasks currently being worked on",
+      "status": "active",
+      "autoRoute": {
+        "patterns": ["active", "in-progress", "working", "started"],
+        "confidence": 0.95
+      },
+      "progressionRules": {
+        "to_testing": ["implementation_completed", "self_tested", "ready_for_review"],
+        "to_blocked": ["dependency_issue", "resource_unavailable", "blocker_identified"]
+      }
+    },
+    "blocked/": {
+      "purpose": "Tasks waiting on dependencies or external factors",
+      "status": "blocked",
+      "autoRoute": {
+        "patterns": ["blocked", "waiting", "dependency", "on-hold"],
+        "confidence": 0.9
+      },
+      "alertThresholds": {
+        "warning": "iteration-3-stagnation",
+        "critical": "iteration-5-stagnation"
+      },
+      "progressionRules": {
+        "to_active": ["blocker_resolved", "dependency_available"],
+        "to_cancelled": ["blocker_permanent", "no_longer_needed"]
+      }
+    },
+    "testing/": {
+      "purpose": "Tasks under review, testing, or validation",
+      "status": "testing",
+      "autoRoute": {
+        "patterns": ["testing", "review", "validation", "qa"],
+        "confidence": 0.85
+      },
+      "progressionRules": {
+        "to_completed": ["tests_passed", "review_approved", "acceptance_criteria_met"],
+        "to_active": ["tests_failed", "changes_requested", "rework_needed"]
+      }
+    },
+    "completed/": {
+      "purpose": "Successfully finished tasks",
+      "status": "completed",
+      "autoRoute": {
+        "patterns": ["completed", "done", "finished", "delivered"],
+        "confidence": 0.95
+      },
+      "requirementChecks": {
+        "documentation": "required",
+        "retrospective": "recommended"
+      }
+    },
+    "templates/": {
+      "purpose": "Task templates and automation rules",
+      "managed": true
+    }
+  },
+
+  "contentAnalysisPatterns": {
+    "filenameKeywords": [
+      "task", "implement", "create", "build", "develop", "fix", "update", 
+      "add", "remove", "optimize", "test", "deploy", "TASK-[0-9]+"
+    ],
+    "contentKeywords": [
+      "implement", "create", "build", "develop", "action item", "todo",
+      "deliverable", "milestone", "acceptance criteria", "definition of done"
+    ],
+    "statusIndicators": {
+      "pending": ["not started", "todo", "pending", "queued"],
+      "active": ["in progress", "working on", "started", "developing"],
+      "blocked": ["blocked", "waiting for", "dependency", "on hold"],
+      "testing": ["testing", "review", "qa", "validation"],
+      "completed": ["done", "completed", "finished", "delivered"]
+    }
+  },
+
+  "workflowAutomation": {
+    "statusProgression": {
+      "pending → active": {
+        "automaticTriggers": ["assignee_accepted", "dependencies_resolved"],
+        "requiredFields": ["assignee", "description", "acceptance_criteria"],
+        "actions": ["notify_assignee", "start_time_tracking"]
+      },
+      "active → testing": {
+        "automaticTriggers": ["implementation_complete_keyword"],
+        "requiredFields": ["implementation_summary", "self_test_results"],
+        "actions": ["assign_to_reviewer", "create_test_checklist"]
+      },
+      "testing → completed": {
+        "automaticTriggers": ["all_tests_passed", "reviewer_approved"],
+        "requiredFields": ["test_results", "reviewer_approval"],
+        "actions": ["notify_stakeholders", "update_metrics", "create_retrospective"]
+      },
+      "any → blocked": {
+        "manualTriggers": ["blocker_identified"],
+        "requiredFields": ["blocker_description", "estimated_resolution", "owner"],
+        "actions": ["notify_manager", "create_blocker_resolution_task"]
+      }
+    },
+
+    "dependencyManagement": {
+      "autoDetection": {
+        "patterns": ["depends on", "requires", "TASK-[0-9]+", "blocked by", "needs"],
+        "confidence": 0.9
+      },
+      "resolutionTracking": {
+        "checkFrequency": "per-iteration",
+        "autoUnblock": true,
+        "notificationThreshold": "iteration-2-blocked"
+      }
+    },
+
+    "effortTracking": {
+      "estimation": {
+        "methods": ["story_points", "hours", "complexity"],
+        "required": true,
+        "validation": "must_be_numeric"
+      },
+      "actualTracking": {
+        "autoStart": "when_moved_to_active",
+        "autoStop": "when_moved_to_completed",
+        "manualAdjustments": "allowed"
+      }
+    }
+  },
+
+  "qualityGates": {
+    "taskCreation": {
+      "requiredFields": ["title", "description", "acceptance_criteria", "priority"],
+      "validation": {
+        "title": "must_be_specific_and_actionable",
+        "description": "minimum_100_characters",
+        "acceptance_criteria": "minimum_1_criterion"
+      }
+    },
+    "progression": {
+      "to_active": {
+        "checks": ["has_assignee", "dependencies_resolved", "acceptance_criteria_clear"]
+      },
+      "to_testing": {
+        "checks": ["implementation_documented", "self_test_completed"]
+      },
+      "to_completed": {
+        "checks": ["tests_passed", "documentation_updated", "retrospective_created"]
+      }
+    }
+  },
+
+  "relationshipMappings": {
+    "outbound": {
+      "implements": {
+        "target": "requirements",
+        "confidence": 0.95,
+        "autoDetect": "REQ-[0-9]+ referenced in task",
+        "description": "Requirements this task implements"
+      },
+      "produces": {
+        "target": "execution",
+        "confidence": 0.9,
+        "autoDetect": "deliverable files created",
+        "description": "Execution artifacts produced by this task"
+      },
+      "follows": {
+        "target": "decisions",
+        "confidence": 0.8,
+        "autoDetect": "ADR-[0-9]+ referenced in task",
+        "description": "Decisions this task follows"
+      },
+      "depends_on": {
+        "target": "tasks",
+        "confidence": 0.95,
+        "autoDetect": "TASK-[0-9]+ in dependencies",
+        "description": "Other tasks this depends on"
+      }
+    },
+    "inbound": {
+      "created_from": {
+        "source": "requirements",
+        "confidence": 0.9,
+        "description": "Requirements that created this task"
+      },
+      "influenced_by": {
+        "source": "decisions",
+        "confidence": 0.8,
+        "description": "Decisions that influenced this task"
+      }
+    }
+  },
+
+  "blockageDetection": {
+    "automaticDetection": {
+      "iterationThresholds": {
+        "warning": "iteration-3-same-status",
+        "alert": "iteration-5-same-status",
+        "critical": "iteration-7-same-status"
+      },
+      "patternDetection": {
+        "repeatedBlocks": "same_blocker_type_3_times",
+        "cascadingBlocks": "multiple_dependent_tasks_blocked",
+        "resourceBottlenecks": "same_assignee_multiple_blocked_tasks"
+      }
+    },
+    "resolutionAutomation": {
+      "createResolutionTask": {
+        "trigger": "blocker_identified",
+        "template": "blocker-resolution-task.md",
+        "assignTo": "manager_or_lead"
+      },
+      "escalationRules": {
+        "after_iteration_3": "notify_manager",
+        "after_iteration_5": "escalate_to_project_lead",
+        "after_iteration_7": "executive_escalation"
+      }
+    }
+  },
+
+  "metricsTracking": {
+    "velocityMetrics": {
+      "tasksCompletedPerIteration": "count of completed tasks per iteration cycle",
+      "averageCycleIterations": "iterations from active to completed",
+      "velocityTrend": "iteration-over-iteration completion rate"
+    },
+    "qualityMetrics": {
+      "reworkRate": "percentage of tasks moved from testing back to active",
+      "defectRate": "percentage of completed tasks with post-completion issues",
+      "documentationCompliance": "percentage with complete documentation"
+    },
+    "blockageMetrics": {
+      "blockageRate": "percentage of tasks that become blocked",
+      "averageBlockageIterations": "average iterations spent in blocked status",
+      "blockageResolutionIterations": "iterations from blocked to unblocked"
+    }
+  },
+
+  "automationRules": {
+    "autoAssignment": {
+      "skillMatching": {
+        "patterns": ["frontend", "backend", "design", "testing"],
+        "assignmentLogic": "match_skill_to_task_type"
+      },
+      "workloadBalancing": {
+        "enabled": true,
+        "maxTasksPerPerson": 3,
+        "considerEstimates": true
+      }
+    },
+    "notifications": {
+      "statusChanges": {
+        "to_assignee": ["task_assigned", "task_blocked", "task_unblocked"],
+        "to_stakeholders": ["task_completed", "task_delayed"],
+        "to_manager": ["task_blocked_3_days", "effort_variance_significant"]
+      }
+    },
+    "documentation": {
+      "autoGeneration": {
+        "onCompletion": "generate_task_summary",
+        "template": "task-completion-report.md"
+      },
+      "linkingRules": {
+        "toRequirements": "link_implemented_requirements",
+        "toDecisions": "link_followed_decisions",
+        "toExecution": "link_created_artifacts"
+      }
+    }
+  },
+
+  "learningSystem": {
+    "estimationImprovement": {
+      "trackAccuracy": "compare_estimate_to_actual",
+      "identifyPatterns": "task_types_with_poor_estimation",
+      "suggestAdjustments": "improve_future_estimates"
+    },
+    "processOptimization": {
+      "identifyBottlenecks": "analyze_where_tasks_get_stuck",
+      "suggestWorkflowChanges": "recommend_process_improvements",
+      "trackEffectiveness": "measure_improvement_impact"
+    }
+  }
+} 

@@ -1,0 +1,318 @@
+{
+  "module": {
+    "name": "decisions",
+    "version": "2.0",
+    "description": "Complete decision journey enforcement with mandatory alternatives and outcome tracking",
+    "parentSystem": "../master-index.json"
+  },
+
+  "directoryStructure": {
+    "architectural/": {
+      "purpose": "Technical and system architecture decisions",
+      "decisionTypes": ["technology-choice", "system-design", "infrastructure", "security"],
+      "autoRoute": {
+        "patterns": ["architecture", "technical", "system", "infrastructure", "database", "api"],
+        "confidence": 0.9
+      }
+    },
+    "business/": {
+      "purpose": "Business strategy and product decisions",
+      "decisionTypes": ["product-strategy", "business-model", "market-approach", "pricing"],
+      "autoRoute": {
+        "patterns": ["business", "strategy", "product", "market", "revenue", "pricing"],
+        "confidence": 0.85
+      }
+    },
+    "design/": {
+      "purpose": "User experience and interface design decisions",
+      "decisionTypes": ["ux-pattern", "ui-choice", "interaction-design", "visual-design"],
+      "autoRoute": {
+        "patterns": ["design", "ux", "ui", "interface", "user-experience", "visual"],
+        "confidence": 0.9
+      }
+    },
+    "process/": {
+      "purpose": "Workflow, methodology, and operational decisions",
+      "decisionTypes": ["workflow", "methodology", "tooling", "process-improvement"],
+      "autoRoute": {
+        "patterns": ["process", "workflow", "methodology", "tooling", "operations"],
+        "confidence": 0.8
+      }
+    },
+    "alternatives/": {
+      "purpose": "Documentation of options not chosen and rationale",
+      "decisionTypes": ["rejected-option", "alternative-analysis", "trade-off-documentation"],
+      "autoRoute": {
+        "patterns": ["alternative", "rejected", "not-chosen", "option", "trade-off"],
+        "confidence": 0.85
+      }
+    },
+    "templates/": {
+      "purpose": "Decision documentation templates",
+      "managed": true
+    }
+  },
+
+  "contentAnalysisPatterns": {
+    "filenameKeywords": [
+      "decision", "adr", "choice", "alternative", "option", "trade-off",
+      "architecture", "strategy", "design-decision", "ADR-[0-9]+"
+    ],
+    "contentKeywords": [
+      "decided", "chosen", "alternative", "option", "rationale", "trade-off",
+      "pros and cons", "evaluation", "criteria", "recommendation"
+    ],
+    "decisionIndicators": {
+      "problem": ["problem", "issue", "challenge", "need to decide"],
+      "alternatives": ["option", "alternative", "choice", "approach"],
+      "evaluation": ["pros", "cons", "criteria", "evaluation", "analysis"],
+      "decision": ["decided", "chosen", "selected", "recommendation"],
+      "rationale": ["because", "rationale", "reason", "justification"],
+      "implementation": ["implementation", "next steps", "action plan"]
+    }
+  },
+
+  "mandatoryJourney": {
+    "phases": {
+      "1_problem_identification": {
+        "required": true,
+        "validation": {
+          "problemStatement": "must exist and be specific",
+          "context": "background information required",
+          "constraints": "technical and business constraints identified",
+          "successCriteria": "measurable success criteria defined"
+        },
+        "blockProgressionWithout": ["clear_problem_statement", "defined_success_criteria"]
+      },
+      "2_option_generation": {
+        "required": true,
+        "validation": {
+          "minimumAlternatives": 2,
+          "alternativeDetail": "each option must have description and approach",
+          "resourceRequirements": "time, people, budget estimated for each",
+          "feasibilityAssessment": "technical feasibility evaluated"
+        },
+        "blockProgressionWithout": ["minimum_2_alternatives", "resource_estimates"]
+      },
+      "3_evaluation": {
+        "required": true,
+        "validation": {
+          "evaluationCriteria": "systematic criteria defined with weights",
+          "optionComparison": "structured comparison matrix required",
+          "riskAssessment": "risks identified and mitigation planned",
+          "stakeholderInput": "relevant stakeholder input documented"
+        },
+        "blockProgressionWithout": ["evaluation_criteria", "risk_assessment"]
+      },
+      "4_decision": {
+        "required": true,
+        "validation": {
+          "chosenOption": "clear selection made",
+          "rationale": "decision rationale references evaluation",
+          "assumptions": "key assumptions documented",
+          "tradeoffs": "accepted trade-offs acknowledged"
+        },
+        "blockProgressionWithout": ["chosen_option", "clear_rationale"]
+      },
+      "5_implementation_planning": {
+        "required": true,
+        "validation": {
+          "implementationSteps": "actionable steps with owners and dates",
+          "resourceAllocation": "budget and team assignments",
+          "riskMitigation": "mitigation strategies for identified risks",
+          "timeline": "realistic timeline with milestones"
+        },
+        "blockProgressionWithout": ["implementation_steps", "resource_allocation"]
+      },
+      "6_monitoring": {
+        "required": true,
+        "validation": {
+          "successMetrics": "measurable outcome metrics defined",
+          "reviewSchedule": "review dates and criteria established",
+          "adjustmentTriggers": "conditions for revisiting decision",
+          "learningCapture": "how lessons will be documented"
+        },
+        "blockProgressionWithout": ["success_metrics", "review_schedule"]
+      }
+    },
+    "completenessCheck": {
+      "allPhasesRequired": true,
+      "progressionBlocking": true,
+      "validationStrict": true
+    }
+  },
+
+  "qualityGates": {
+    "alternativeValidation": {
+      "minimumCount": 2,
+      "requirementChecks": {
+        "detailLevel": "each alternative must have description, approach, resources",
+        "feasibility": "technical and business feasibility assessed",
+        "comparison": "structured comparison against criteria required"
+      }
+    },
+    "evaluationQuality": {
+      "systematicCriteria": "evaluation criteria must be defined and weighted",
+      "objectiveAnalysis": "pros/cons for each alternative required",
+      "riskAssessment": "risks identified with mitigation strategies",
+      "stakeholderInput": "relevant stakeholder perspectives included"
+    },
+    "implementationReadiness": {
+      "actionableSteps": "implementation plan must be specific and actionable",
+      "resourceClarity": "clear resource requirements and assignments",
+      "timelineRealistic": "realistic timeline with clear milestones",
+      "successMeasurable": "success metrics must be quantifiable"
+    }
+  },
+
+  "outcomeTracking": {
+    "implementationMonitoring": {
+      "progressTracking": {
+        "frequency": "weekly",
+        "metrics": ["implementation_progress", "resource_utilization", "timeline_adherence"],
+        "alerts": ["behind_schedule", "over_budget", "quality_issues"]
+      },
+      "adjustmentTriggers": {
+        "significantDeviation": ">=20% variance from plan",
+        "newInformation": "material changes to assumptions",
+        "stakeholderFeedback": "major stakeholder concerns raised"
+      }
+    },
+    "outcomeEvaluation": {
+      "reviewSchedule": {
+        "iteration_10_review": "initial implementation results",
+        "iteration_30_review": "effectiveness assessment", 
+        "iteration_90_review": "long-term impact evaluation"
+      },
+      "successMeasurement": {
+        "quantitativeMetrics": "measure against defined success criteria",
+        "qualitativeAssessment": "stakeholder satisfaction and feedback",
+        "unintendedConsequences": "identify and document side effects"
+      }
+    },
+    "learningCapture": {
+      "patternIdentification": "successful decision patterns to replicate",
+      "mistakeDocumentation": "what went wrong and how to prevent",
+      "processImprovement": "enhance decision-making process",
+      "knowledgeSharing": "share insights across organization"
+    }
+  },
+
+  "relationshipMappings": {
+    "outbound": {
+      "influences": {
+        "target": "tasks",
+        "confidence": 0.9,
+        "autoDetect": "ADR-[0-9]+ referenced in task content",
+        "description": "Tasks influenced by this decision"
+      },
+      "impacts": {
+        "target": "requirements",
+        "confidence": 0.8,
+        "autoDetect": "requirement changes after decision",
+        "description": "Requirements impacted by this decision"
+      },
+      "creates": {
+        "target": "execution",
+        "confidence": 0.85,
+        "autoDetect": "implementation artifacts from decision",
+        "description": "Execution work created by this decision"
+      },
+      "supersedes": {
+        "target": "decisions",
+        "confidence": 0.95,
+        "autoDetect": "explicitly references superseded decision",
+        "description": "Previous decisions this replaces"
+      }
+    },
+    "inbound": {
+      "motivated_by": {
+        "source": "requirements",
+        "confidence": 0.8,
+        "description": "Requirements that motivated this decision"
+      },
+      "builds_on": {
+        "source": "knowledge",
+        "confidence": 0.75,
+        "description": "Knowledge patterns used in decision"
+      }
+    }
+  },
+
+  "automationRules": {
+    "journeyEnforcement": {
+      "blockIncompleteProgression": true,
+      "requireAllPhases": true,
+      "validateQualityGates": true,
+      "preventSkipping": true
+    },
+    "templateGeneration": {
+      "autoCreateSections": {
+        "trigger": "new_decision_detected",
+        "action": "populate_decision_template_sections",
+        "validate": "ensure_all_mandatory_sections_present"
+      }
+    },
+    "relationshipDetection": {
+      "implementationTaskCreation": {
+        "trigger": "decision_reaches_implementation_phase",
+        "action": "create_implementation_tasks_in_tasks_pending",
+        "template": "decision-implementation-task.md"
+      },
+      "requirementImpactAnalysis": {
+        "trigger": "decision_finalized",
+        "action": "analyze_impact_on_existing_requirements",
+        "document": "requirement_impact_analysis.md"
+      }
+    },
+    "outcomeTracking": {
+      "reviewReminders": {
+        "schedule": ["iteration_10", "iteration_30", "iteration_90"],
+        "action": "create_decision_review_task",
+        "assignTo": "decision_maker"
+      },
+      "successMeasurement": {
+        "trigger": "review_date_reached",
+        "action": "evaluate_against_success_criteria",
+        "document": "decision_outcome_report.md"
+      }
+    }
+  },
+
+  "metricsTracking": {
+    "decisionQuality": {
+      "journeyCompleteness": "percentage of decisions with complete journey",
+      "alternativeConsideration": "average number of alternatives considered",
+      "evaluationRigor": "percentage with systematic evaluation",
+      "implementationSuccess": "percentage successfully implemented"
+    },
+    "decisionVelocity": {
+      "timeToDecision": "average time from problem to decision",
+      "implementationSpeed": "time from decision to implementation start",
+      "reviewCycle": "adherence to scheduled reviews"
+    },
+    "outcomeEffectiveness": {
+      "successRate": "percentage achieving defined success criteria",
+      "unintendedConsequences": "frequency of unexpected side effects",
+      "stakeholderSatisfaction": "satisfaction with decision outcomes"
+    }
+  },
+
+  "learningSystem": {
+    "patternRecognition": {
+      "successfulDecisionPatterns": {
+        "track": ["thorough_alternative_analysis", "stakeholder_involvement", "systematic_evaluation"],
+        "promote": "successful_patterns_to_best_practices"
+      },
+      "decisionFailurePatterns": {
+        "track": ["insufficient_alternatives", "poor_implementation_planning", "inadequate_monitoring"],
+        "prevent": "add_validation_rules_to_prevent_failures"
+      }
+    },
+    "processImprovement": {
+      "templateEvolution": "enhance templates based on successful decisions",
+      "criteriaRefinement": "improve evaluation criteria based on outcomes",
+      "toolingEnhancement": "suggest process improvements and tools"
+    }
+  }
+} 

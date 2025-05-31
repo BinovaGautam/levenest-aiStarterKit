@@ -1,0 +1,166 @@
+{
+  "module": {
+    "name": "core",
+    "version": "2.0",
+    "description": "System configuration, health monitoring, and integration management",
+    "parentSystem": "../master-index.json"
+  },
+
+  "systemConfiguration": {
+    "projectInfo": {
+      "initialized": "auto_detected_on_first_run",
+      "projectType": "auto_detected_from_file_analysis",
+      "domain": "software_development | design | content | research | business",
+      "complexity": "calculated_from_scope_and_dependencies"
+    },
+    "operationalSettings": {
+      "aiAgentEnabled": true,
+      "automationLevel": "full",
+      "qualityGatesEnforced": true,
+      "learningSystemActive": true,
+      "healthMonitoringEnabled": true
+    }
+  },
+
+  "integrationManagement": {
+    "moduleOrchestration": {
+      "moduleLoadOrder": [
+        "core",
+        "requirements", 
+        "tasks",
+        "decisions",
+        "knowledge",
+        "execution",
+        "analytics",
+        "automation"
+      ],
+      "dependencyResolution": "automatic_based_on_module_references",
+      "crossModuleValidation": "validate_reference_integrity_on_startup"
+    },
+    "systemHealth": {
+      "moduleHealth": "monitor_each_module_operational_status",
+      "integrationHealth": "validate_cross_module_communication",
+      "performanceHealth": "track_system_response_times",
+      "dataIntegrityHealth": "validate_relationship_consistency"
+    }
+  },
+
+  "healthMonitoring": {
+    "systemLevelMetrics": {
+      "overallHealth": {
+        "calculation": "weighted_average_of_module_health_scores",
+        "updateFrequency": "real_time",
+        "alertThresholds": {
+          "critical": "< 0.4",
+          "warning": "0.4 - 0.7",
+          "healthy": "> 0.7"
+        }
+      },
+      "automationEffectiveness": {
+        "measurement": "percentage_successful_automated_operations",
+        "target": "> 0.95",
+        "tracking": "daily_aggregate"
+      },
+      "aiAgentPerformance": {
+        "routingAccuracy": "percentage_correct_automatic_file_routing",
+        "recommendationRelevance": "user_acceptance_rate_of_suggestions",
+        "learningVelocity": "rate_of_pattern_recognition_improvement"
+      }
+    },
+    "alertingSystem": {
+      "severityLevels": {
+        "critical": "immediate_notification_required",
+        "warning": "attention_needed_within_24_hours",
+        "info": "awareness_notification_only"
+      },
+      "notificationChannels": {
+        "internal": "system_logs_and_dashboard_alerts",
+        "external": "configurable_webhook_integrations",
+        "escalation": "progressive_notification_based_on_response_time"
+      }
+    }
+  },
+
+  "configurationManagement": {
+    "dynamicConfiguration": {
+      "runtimeAdjustment": "allow_configuration_changes_without_restart",
+      "validationRules": "validate_configuration_changes_before_applying",
+      "rollbackCapability": "revert_to_previous_configuration_on_failure"
+    },
+    "environmentAdaptation": {
+      "projectTypeDetection": "auto_adjust_based_on_detected_project_characteristics",
+      "teamSizeOptimization": "scale_automation_complexity_based_on_team_size",
+      "domainSpecialization": "apply_domain_specific_patterns_and_validations"
+    }
+  },
+
+  "dataManagement": {
+    "storageStrategy": {
+      "fileBasedStorage": "human_readable_json_and_markdown_files",
+      "versionControl": "git_compatible_text_based_storage",
+      "backupStrategy": "automated_backup_to_configured_locations"
+    },
+    "dataIntegrity": {
+      "referenceValidation": "validate_all_cross_references_between_modules",
+      "consistencyChecking": "ensure_data_consistency_across_modules",
+      "corruptionDetection": "detect_and_alert_on_data_corruption"
+    },
+    "migrationSupport": {
+      "versionMigration": "automatic_migration_between_starterkit_versions",
+      "dataImport": "import_existing_project_data_into_starterkit_format",
+      "exportCapability": "export_data_to_external_formats"
+    }
+  },
+
+  "securityAndCompliance": {
+    "accessControl": {
+      "filePermissions": "respect_underlying_filesystem_permissions",
+      "sensitiveDataHandling": "identify_and_protect_sensitive_information",
+      "auditTrail": "maintain_audit_log_of_system_operations"
+    },
+    "complianceSupport": {
+      "regulatoryTemplates": "provide_templates_for_regulatory_compliance",
+      "auditReporting": "generate_compliance_reports",
+      "dataGovernance": "ensure_data_handling_meets_governance_requirements"
+    }
+  },
+
+  "performanceOptimization": {
+    "cachingStrategy": {
+      "intelligentCaching": "cache_frequently_accessed_computed_results",
+      "cacheInvalidation": "invalidate_cache_when_underlying_data_changes",
+      "memorylimits": "respect_configured_memory_limits"
+    },
+    "scalabilitySupport": {
+      "largeProjectHandling": "optimize_for_projects_with_thousands_of_files",
+      "parallelProcessing": "utilize_parallel_processing_where_beneficial",
+      "incrementalProcessing": "process_only_changed_data_when_possible"
+    }
+  },
+
+  "extensibilityFramework": {
+    "pluginArchitecture": {
+      "customModules": "support_custom_module_development",
+      "hookPoints": "provide_extension_points_for_custom_logic",
+      "apiAccess": "expose_system_functionality_through_apis"
+    },
+    "customizationSupport": {
+      "templateCustomization": "allow_customization_of_document_templates",
+      "workflowCustomization": "support_custom_workflow_definitions",
+      "ruleCustomization": "enable_custom_business_rules_and_validations"
+    }
+  },
+
+  "maintenanceAndSupport": {
+    "systemMaintenance": {
+      "healthChecks": "regular_system_health_validation",
+      "performanceTuning": "automatic_performance_optimization",
+      "cleanupOperations": "remove_obsolete_data_and_temporary_files"
+    },
+    "troubleshooting": {
+      "diagnosticMode": "enhanced_logging_for_troubleshooting",
+      "errorRecovery": "automatic_recovery_from_common_errors",
+      "supportInformation": "collect_system_information_for_support"
+    }
+  }
+} 

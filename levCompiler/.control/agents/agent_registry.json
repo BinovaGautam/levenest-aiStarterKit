@@ -2,8 +2,8 @@
   "agentRegistry": {
     "version": "1.0.0",
     "lastUpdated": "2024-01-01",
-    "totalAgents": 9,
-    "activeAgents": 9,
+    "totalAgents": 10,
+    "activeAgents": 10,
     "systemArchitecture": "intelligent-routing-with-human-supervision"
   },
 
@@ -102,6 +102,18 @@
       "confidenceThreshold": 0.90,
       "humanSupervisionRequired": false,
       "location": "levCompiler/.control/agents/version_tracking_agent.json"
+    },
+
+    "techStackManagerAgent": {
+      "agentId": "TECH-STACK-001",
+      "status": "active",
+      "role": "project-architect",
+      "priority": 1,
+      "description": "Tech stack management and project structure setup",
+      "specialization": "tech-stack-and-project-structure-management",
+      "confidenceThreshold": 0.90,
+      "humanSupervisionRequired": false,
+      "location": "levCompiler/.control/agents/tech_stack_manager_agent.json"
     }
   },
 

@@ -1,0 +1,298 @@
+{
+  "workflowMetadata": {
+    "workflowId": "wordpress-theme-development-flow",
+    "workflowName": "WordPress Theme Development Workflow",
+    "version": "1.0.0",
+    "description": "Complete workflow for WordPress theme development from requirements to deployment",
+    "category": "wordpress",
+    "subcategory": "theme-development",
+    "estimatedDuration": "2-4 weeks",
+    "complexity": "medium",
+    "applicableAgentTeams": ["wordpress-theme-development-team"]
+  },
+
+  "workflowStages": {
+    "STAGE-001": {
+      "stageName": "requirements-analysis",
+      "description": "Analyze WordPress theme requirements and specifications",
+      "assignedAgent": "requirement-analyzer",
+      "agentSpecialization": "wordpress-requirements",
+      "estimatedDuration": "2-3 days",
+      "inputs": {
+        "required": ["project-brief", "design-mockups", "functional-requirements"],
+        "optional": ["existing-theme-reference", "plugin-requirements", "performance-targets"]
+      },
+      "tasks": [
+        "analyze-wordpress-theme-requirements",
+        "identify-custom-post-types-needed",
+        "determine-acf-field-requirements",
+        "assess-woocommerce-integration-needs",
+        "define-responsive-design-requirements",
+        "identify-accessibility-requirements",
+        "determine-seo-optimization-needs"
+      ],
+      "outputs": {
+        "required": ["requirements-document", "theme-specification", "technical-requirements"],
+        "optional": ["performance-benchmarks", "accessibility-checklist", "seo-requirements"]
+      },
+      "qualityGates": [
+        {
+          "type": "automated",
+          "name": "requirements-completeness-check",
+          "criteria": "All required fields documented"
+        },
+        {
+          "type": "confidence-threshold",
+          "name": "requirements-confidence-check",
+          "threshold": 0.85
+        }
+      ],
+      "nextStage": "STAGE-002"
+    },
+
+    "STAGE-002": {
+      "stageName": "architecture-design",
+      "description": "Design WordPress theme architecture and structure",
+      "assignedAgent": "architecture-designer",
+      "agentSpecialization": "wordpress-architecture",
+      "estimatedDuration": "2-3 days",
+      "inputs": {
+        "required": ["requirements-document", "theme-specification", "technical-requirements"],
+        "optional": ["performance-benchmarks", "existing-codebase"]
+      },
+      "tasks": [
+        "design-wordpress-theme-structure",
+        "plan-template-hierarchy",
+        "design-hooks-and-filters-architecture",
+        "plan-performance-optimization-strategy",
+        "design-theme-customizer-framework",
+        "plan-gutenberg-block-integration",
+        "design-child-theme-strategy"
+      ],
+      "outputs": {
+        "required": ["architecture-document", "file-structure-plan", "template-hierarchy-design"],
+        "optional": ["performance-strategy", "customizer-framework-design", "block-architecture"]
+      },
+      "qualityGates": [
+        {
+          "type": "automated",
+          "name": "architecture-validation",
+          "criteria": "WordPress best practices compliance"
+        },
+        {
+          "type": "confidence-threshold",
+          "name": "architecture-confidence-check",
+          "threshold": 0.90
+        }
+      ],
+      "nextStage": "STAGE-003"
+    },
+
+    "STAGE-003": {
+      "stageName": "theme-implementation",
+      "description": "Implement WordPress theme code and functionality",
+      "assignedAgent": "code-generator",
+      "agentSpecialization": "wordpress-development",
+      "estimatedDuration": "1-2 weeks",
+      "inputs": {
+        "required": ["architecture-document", "file-structure-plan", "template-hierarchy-design"],
+        "optional": ["design-assets", "content-samples", "plugin-requirements"]
+      },
+      "tasks": [
+        "create-theme-file-structure",
+        "implement-template-files",
+        "develop-functions-php",
+        "implement-custom-post-types",
+        "integrate-acf-fields",
+        "implement-theme-customizer",
+        "develop-responsive-styles",
+        "implement-javascript-functionality"
+      ],
+      "outputs": {
+        "required": ["theme-files", "functions-php", "style-css", "template-files"],
+        "optional": ["custom-blocks", "javascript-files", "image-assets", "documentation"]
+      },
+      "qualityGates": [
+        {
+          "type": "automated",
+          "name": "wordpress-coding-standards",
+          "criteria": "WordPress-Core coding standards compliance"
+        },
+        {
+          "type": "automated",
+          "name": "syntax-validation",
+          "criteria": "PHP and CSS syntax validation"
+        },
+        {
+          "type": "confidence-threshold",
+          "name": "implementation-confidence-check",
+          "threshold": 0.80
+        }
+      ],
+      "nextStage": "STAGE-004"
+    },
+
+    "STAGE-004": {
+      "stageName": "code-review",
+      "description": "Review WordPress theme code for quality, security, and performance",
+      "assignedAgent": "critical-reviewer",
+      "agentSpecialization": "wordpress-code-review",
+      "estimatedDuration": "2-3 days",
+      "inputs": {
+        "required": ["theme-files", "functions-php", "style-css", "template-files"],
+        "optional": ["custom-blocks", "javascript-files", "documentation"]
+      },
+      "tasks": [
+        "review-wordpress-coding-standards",
+        "check-security-vulnerabilities",
+        "review-performance-optimization",
+        "validate-accessibility-compliance",
+        "review-seo-optimization",
+        "check-mobile-responsiveness",
+        "validate-cross-browser-compatibility"
+      ],
+      "outputs": {
+        "required": ["review-report", "quality-score", "security-assessment"],
+        "optional": ["performance-report", "accessibility-report", "improvement-suggestions"]
+      },
+      "qualityGates": [
+        {
+          "type": "automated",
+          "name": "security-scan",
+          "criteria": "No critical security vulnerabilities"
+        },
+        {
+          "type": "automated",
+          "name": "performance-check",
+          "criteria": "Performance benchmarks met"
+        },
+        {
+          "type": "confidence-threshold",
+          "name": "review-confidence-check",
+          "threshold": 0.95
+        }
+      ],
+      "nextStage": "STAGE-005",
+      "conditionalRouting": {
+        "review-failed": "STAGE-003",
+        "review-passed": "STAGE-005"
+      }
+    },
+
+    "STAGE-005": {
+      "stageName": "comprehensive-testing",
+      "description": "Test WordPress theme functionality, compatibility, and performance",
+      "assignedAgent": "testing-specialist",
+      "agentSpecialization": "wordpress-testing",
+      "estimatedDuration": "3-4 days",
+      "inputs": {
+        "required": ["theme-files", "review-report", "quality-score"],
+        "optional": ["test-content", "testing-checklist", "browser-requirements"]
+      },
+      "tasks": [
+        "wordpress-theme-unit-testing",
+        "responsive-design-testing",
+        "cross-browser-testing",
+        "accessibility-testing",
+        "performance-testing",
+        "seo-testing",
+        "plugin-compatibility-testing",
+        "gutenberg-compatibility-testing"
+      ],
+      "outputs": {
+        "required": ["testing-report", "compatibility-matrix", "performance-metrics"],
+        "optional": ["accessibility-report", "seo-audit", "bug-report"]
+      },
+      "qualityGates": [
+        {
+          "type": "automated",
+          "name": "theme-unit-test",
+          "criteria": "WordPress Theme Unit Test passes"
+        },
+        {
+          "type": "automated",
+          "name": "accessibility-validation",
+          "criteria": "WCAG 2.1 AA compliance"
+        },
+        {
+          "type": "confidence-threshold",
+          "name": "testing-confidence-check",
+          "threshold": 0.90
+        }
+      ],
+      "nextStage": "STAGE-006",
+      "conditionalRouting": {
+        "testing-failed": "STAGE-003",
+        "testing-passed": "STAGE-006"
+      }
+    },
+
+    "STAGE-006": {
+      "stageName": "deployment-preparation",
+      "description": "Prepare WordPress theme for deployment and distribution",
+      "assignedAgent": "deployment-orchestrator",
+      "agentSpecialization": "wordpress-deployment",
+      "estimatedDuration": "1-2 days",
+      "inputs": {
+        "required": ["theme-files", "testing-report", "compatibility-matrix"],
+        "optional": ["deployment-requirements", "distribution-channels", "documentation"]
+      },
+      "tasks": [
+        "prepare-theme-package",
+        "create-deployment-documentation",
+        "prepare-staging-deployment",
+        "create-backup-procedures",
+        "prepare-production-deployment",
+        "create-rollback-plan"
+      ],
+      "outputs": {
+        "required": ["deployment-ready-package", "deployment-documentation", "staging-deployment"],
+        "optional": ["distribution-package", "installation-guide", "changelog"]
+      },
+      "qualityGates": [
+        {
+          "type": "automated",
+          "name": "package-validation",
+          "criteria": "Theme package structure validation"
+        },
+        {
+          "type": "human-confirmation",
+          "name": "deployment-approval",
+          "criteria": "Human approval for production deployment"
+        }
+      ],
+      "nextStage": "WORKFLOW-COMPLETE"
+    }
+  },
+
+  "workflowConfiguration": {
+    "retryPolicy": {
+      "maxRetries": 3,
+      "retryableStages": ["STAGE-003", "STAGE-004", "STAGE-005"],
+      "retryTriggers": ["quality-gate-failure", "low-confidence-score"]
+    },
+    "escalationRules": {
+      "human-intervention-triggers": [
+        "3-consecutive-failures",
+        "confidence-score-below-70%",
+        "critical-security-vulnerability",
+        "deployment-approval-required"
+      ]
+    },
+    "parallelExecution": {
+      "enabled": false,
+      "reason": "WordPress theme development requires sequential stages"
+    }
+  },
+
+  "integrationPoints": {
+    "required-protocols": [
+      "levenest/templates/protocols/version-control/gitflow-wordpress.json",
+      "levenest/templates/protocols/quality-gates/wordpress-quality-standards.json"
+    ],
+    "optional-integrations": [
+      "levenest/templates/integrations/ci-cd/github-actions-wordpress.json",
+      "levenest/templates/integrations/deployment/wp-engine-deployment.json"
+    ]
+  }
+}

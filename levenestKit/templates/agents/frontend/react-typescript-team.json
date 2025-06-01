@@ -1,0 +1,253 @@
+{
+  "templateMetadata": {
+    "templateId": "react-typescript-team",
+    "templateName": "React + TypeScript Development Team",
+    "version": "1.0.0",
+    "description": "Modern React application development with TypeScript, testing, and optimization",
+    "category": "frontend",
+    "subcategory": "react-development",
+    "targetProject": "React applications, SPAs, e-commerce sites, dashboards",
+    "complexity": "medium-high",
+    "teamSize": "6-agents",
+    "estimatedSetupTime": "20-minutes"
+  },
+
+  "agentTeam": {
+    "requirement-analyzer": {
+      "agentId": "REACT-REQ-AGENT-001",
+      "specialization": "react-frontend-requirements",
+      "capabilities": {
+        "primary": [
+          "react-application-requirements",
+          "component-architecture-analysis",
+          "state-management-needs-assessment",
+          "performance-requirements-analysis",
+          "user-experience-requirements"
+        ],
+        "secondary": [
+          "accessibility-requirements",
+          "seo-optimization-needs",
+          "progressive-web-app-requirements",
+          "internationalization-needs"
+        ],
+        "react-specific": [
+          "react-router-requirements",
+          "context-api-vs-redux-analysis",
+          "component-library-needs",
+          "testing-strategy-requirements"
+        ]
+      },
+      "confidenceThreshold": 0.85,
+      "maxCapacity": 3
+    },
+
+    "architecture-designer": {
+      "agentId": "REACT-ARCH-AGENT-001",
+      "specialization": "react-application-architecture",
+      "capabilities": {
+        "primary": [
+          "react-application-structure",
+          "component-hierarchy-design",
+          "state-management-architecture",
+          "routing-architecture-design"
+        ],
+        "secondary": [
+          "performance-optimization-strategy",
+          "bundle-optimization-planning",
+          "caching-strategy-design",
+          "api-integration-architecture"
+        ],
+        "react-specific": [
+          "hooks-architecture-design",
+          "context-providers-structure",
+          "custom-hooks-strategy",
+          "lazy-loading-implementation"
+        ]
+      },
+      "confidenceThreshold": 0.90,
+      "maxCapacity": 2
+    },
+
+    "code-generator": {
+      "agentId": "REACT-CODE-AGENT-001",
+      "specialization": "react-typescript-development",
+      "capabilities": {
+        "primary": [
+          "react-component-development",
+          "typescript-implementation",
+          "hooks-implementation",
+          "state-management-implementation"
+        ],
+        "secondary": [
+          "api-integration-development",
+          "styling-implementation",
+          "form-handling-implementation",
+          "routing-implementation"
+        ],
+        "react-specific": [
+          "custom-hooks-development",
+          "context-providers-implementation",
+          "higher-order-components",
+          "react-query-integration"
+        ]
+      },
+      "confidenceThreshold": 0.80,
+      "maxCapacity": 5,
+      "codeStandards": {
+        "typescript": "strict-mode",
+        "eslint": "airbnb-typescript",
+        "prettier": "standard-config",
+        "testing": "jest-react-testing-library"
+      }
+    },
+
+    "critical-reviewer": {
+      "agentId": "REACT-REVIEW-AGENT-001",
+      "specialization": "react-code-review",
+      "capabilities": {
+        "primary": [
+          "react-best-practices-review",
+          "typescript-type-safety-review",
+          "performance-optimization-review",
+          "accessibility-compliance-check"
+        ],
+        "secondary": [
+          "security-vulnerability-detection",
+          "bundle-size-optimization-review",
+          "seo-optimization-review",
+          "mobile-responsiveness-check"
+        ],
+        "react-specific": [
+          "hooks-usage-review",
+          "component-lifecycle-review",
+          "state-management-patterns-review",
+          "re-rendering-optimization-review"
+        ]
+      },
+      "confidenceThreshold": 0.95,
+      "maxCapacity": 4,
+      "reviewChecklist": {
+        "performance": ["memo-usage", "callback-optimization", "lazy-loading", "bundle-analysis"],
+        "accessibility": ["aria-labels", "keyboard-navigation", "screen-reader-support"],
+        "security": ["xss-prevention", "input-sanitization", "secure-api-calls"]
+      }
+    },
+
+    "testing-specialist": {
+      "agentId": "REACT-TEST-AGENT-001",
+      "specialization": "react-testing",
+      "capabilities": {
+        "primary": [
+          "unit-testing-react-components",
+          "integration-testing",
+          "e2e-testing-implementation",
+          "accessibility-testing"
+        ],
+        "secondary": [
+          "performance-testing",
+          "visual-regression-testing",
+          "cross-browser-testing",
+          "mobile-testing"
+        ],
+        "react-specific": [
+          "react-testing-library-expertise",
+          "hooks-testing",
+          "context-testing",
+          "async-components-testing"
+        ]
+      },
+      "confidenceThreshold": 0.90,
+      "maxCapacity": 3,
+      "testingTools": {
+        "unit": ["jest", "react-testing-library", "@testing-library/user-event"],
+        "integration": ["cypress", "playwright", "storybook"],
+        "performance": ["lighthouse", "web-vitals", "react-profiler"],
+        "accessibility": ["axe-core", "@testing-library/jest-axe", "lighthouse-accessibility"]
+      }
+    },
+
+    "performance-optimizer": {
+      "agentId": "REACT-PERF-AGENT-001",
+      "specialization": "react-performance-optimization",
+      "capabilities": {
+        "primary": [
+          "bundle-size-optimization",
+          "rendering-performance-optimization",
+          "lazy-loading-implementation",
+          "code-splitting-optimization"
+        ],
+        "secondary": [
+          "image-optimization",
+          "api-call-optimization",
+          "caching-implementation",
+          "service-worker-implementation"
+        ],
+        "react-specific": [
+          "react-memo-optimization",
+          "usecallback-usememo-optimization",
+          "virtual-scrolling-implementation",
+          "react-window-optimization"
+        ]
+      },
+      "confidenceThreshold": 0.85,
+      "maxCapacity": 2
+    }
+  },
+
+  "workflowIntegrations": [
+    "levenest/templates/workflows/frontend/react-development-flow.json",
+    "levenest/templates/workflows/testing/react-testing-workflow.json",
+    "levenest/templates/workflows/deployment/react-deployment-pipeline.json"
+  ],
+
+  "protocolIntegrations": [
+    "levenest/templates/protocols/version-control/github-flow-frontend.json",
+    "levenest/templates/protocols/quality-gates/react-quality-standards.json",
+    "levenest/templates/protocols/deployment/vercel-deployment-protocol.json"
+  ],
+
+  "requiredTools": {
+    "development": ["Node.js", "npm/yarn", "VS Code", "React DevTools"],
+    "bundling": ["Vite", "Webpack", "esbuild"],
+    "testing": ["Jest", "Cypress", "Playwright", "Storybook"],
+    "deployment": ["Vercel", "Netlify", "AWS S3", "GitHub Actions"]
+  },
+
+  "packageDependencies": {
+    "core": ["react", "react-dom", "typescript"],
+    "routing": ["react-router-dom", "@types/react-router-dom"],
+    "stateManagement": ["zustand", "@tanstack/react-query", "context-api"],
+    "styling": ["styled-components", "tailwindcss", "emotion"],
+    "forms": ["react-hook-form", "zod", "@hookform/resolvers"],
+    "testing": ["@testing-library/react", "@testing-library/jest-dom", "jest-environment-jsdom"]
+  },
+
+  "qualityStandards": {
+    "codeQuality": {
+      "typescript": "strict-mode-enabled",
+      "eslint": "airbnb-typescript-config",
+      "prettier": "consistent-formatting",
+      "accessibility": "WCAG-2.1-AA-compliance"
+    },
+    "performance": {
+      "bundleSize": "< 1MB initial bundle",
+      "firstContentfulPaint": "< 1.5s",
+      "largestContentfulPaint": "< 2.5s",
+      "cumulativeLayoutShift": "< 0.1"
+    },
+    "testingRequirements": {
+      "unitTestCoverage": "> 80%",
+      "integrationTests": "required",
+      "e2eTests": "critical-paths-covered",
+      "accessibilityTests": "required"
+    }
+  },
+
+  "setupInstructions": {
+    "step1": "Initialize React + TypeScript project with Vite",
+    "step2": "Configure ESLint, Prettier, and TypeScript strict mode",
+    "step3": "Set up testing environment with Jest and React Testing Library",
+    "step4": "Configure agent team with React-specific capabilities",
+    "step5": "Initialize version control and deployment pipeline"
+  }
+}

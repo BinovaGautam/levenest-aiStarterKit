@@ -1,0 +1,306 @@
+{
+  "setupAgent": {
+    "agentId": "SETUP-AGENT-001",
+    "version": "1.0.0",
+    "description": "Intelligent project setup agent that configures optimal agent teams, workflows, and protocols",
+    "specialization": "project-initialization-and-configuration",
+    "confidenceThreshold": 0.90
+  },
+
+  "capabilities": {
+    "primary": [
+      "project-requirements-analysis",
+      "template-library-navigation",
+      "agent-team-configuration",
+      "workflow-selection-and-customization",
+      "protocol-integration-setup",
+      "quality-standards-configuration"
+    ],
+    "secondary": [
+      "technology-stack-detection",
+      "complexity-assessment",
+      "resource-estimation",
+      "integration-planning",
+      "optimization-recommendations"
+    ],
+    "advanced": [
+      "template-customization",
+      "hybrid-template-creation",
+      "custom-workflow-generation",
+      "protocol-adaptation",
+      "performance-optimization-planning"
+    ]
+  },
+
+  "analysisFramework": {
+    "projectTypeDetection": {
+      "wordpressProjects": {
+        "indicators": ["WordPress", "wp-", "theme", "plugin", "WooCommerce", "ACF", "Gutenberg"],
+        "subtypes": {
+          "theme-development": ["custom theme", "theme customization", "responsive design"],
+          "plugin-development": ["custom plugin", "functionality extension", "API integration"],
+          "ecommerce": ["WooCommerce", "online store", "e-commerce", "shopping cart"],
+          "multisite": ["WordPress multisite", "network", "multiple sites"]
+        }
+      },
+      "frontendProjects": {
+        "indicators": ["React", "Vue", "Angular", "frontend", "SPA", "dashboard", "UI"],
+        "subtypes": {
+          "react-application": ["React", "Next.js", "TypeScript", "hooks", "components"],
+          "vue-application": ["Vue.js", "Nuxt.js", "Composition API", "Vuex"],
+          "angular-application": ["Angular", "TypeScript", "RxJS", "NgRx"],
+          "static-site": ["static site", "JAMstack", "Gatsby", "11ty"]
+        }
+      },
+      "backendProjects": {
+        "indicators": ["API", "backend", "server", "database", "microservice"],
+        "subtypes": {
+          "nodejs-api": ["Node.js", "Express", "Fastify", "API development"],
+          "python-backend": ["Python", "Django", "Flask", "FastAPI"],
+          "php-backend": ["PHP", "Laravel", "Symfony", "CodeIgniter"]
+        }
+      },
+      "fullstackProjects": {
+        "indicators": ["full-stack", "MERN", "MEAN", "LAMP", "end-to-end"],
+        "subtypes": {
+          "mern-stack": ["MongoDB", "Express", "React", "Node.js"],
+          "lamp-stack": ["Linux", "Apache", "MySQL", "PHP"],
+          "jamstack": ["JavaScript", "APIs", "Markup", "static site generators"]
+        }
+      }
+    },
+
+    "complexityAssessment": {
+      "simple": {
+        "criteria": ["single developer", "basic functionality", "minimal integrations", "standard requirements"],
+        "indicators": ["landing page", "blog", "simple theme", "basic plugin"],
+        "estimatedDuration": "1-2 weeks",
+        "agentTeamSize": "3-4 agents"
+      },
+      "medium": {
+        "criteria": ["small team", "moderate functionality", "some integrations", "custom requirements"],
+        "indicators": ["custom theme", "e-commerce site", "dashboard", "API integration"],
+        "estimatedDuration": "2-6 weeks",
+        "agentTeamSize": "4-6 agents"
+      },
+      "complex": {
+        "criteria": ["large team", "advanced functionality", "multiple integrations", "enterprise requirements"],
+        "indicators": ["enterprise application", "microservices", "multi-platform", "advanced features"],
+        "estimatedDuration": "6+ weeks",
+        "agentTeamSize": "6-8 agents"
+      }
+    },
+
+    "technologyStackDetection": {
+      "frontend": {
+        "frameworks": ["React", "Vue", "Angular", "Svelte"],
+        "styling": ["CSS", "SCSS", "Tailwind", "Styled Components", "Emotion"],
+        "stateManagement": ["Redux", "Zustand", "Vuex", "NgRx", "Context API"],
+        "testing": ["Jest", "Cypress", "Playwright", "Testing Library"]
+      },
+      "backend": {
+        "languages": ["JavaScript", "TypeScript", "Python", "PHP", "Java"],
+        "frameworks": ["Express", "Fastify", "Django", "Laravel", "Spring"],
+        "databases": ["MySQL", "PostgreSQL", "MongoDB", "SQLite"],
+        "apis": ["REST", "GraphQL", "WebSocket"]
+      },
+      "wordpress": {
+        "themes": ["custom theme", "child theme", "starter theme"],
+        "plugins": ["custom plugin", "plugin customization", "third-party integration"],
+        "pageBuilders": ["Gutenberg", "Elementor", "Beaver Builder"],
+        "ecommerce": ["WooCommerce", "Easy Digital Downloads"]
+      }
+    }
+  },
+
+  "templateRecommendationEngine": {
+    "matchingAlgorithm": {
+      "step1-primary-match": {
+        "description": "Match project type to template category",
+        "weight": 0.4,
+        "matching": "exact-keyword-matching-with-synonyms"
+      },
+      "step2-technology-match": {
+        "description": "Match technology stack to template specialization",
+        "weight": 0.3,
+        "matching": "technology-stack-compatibility-scoring"
+      },
+      "step3-complexity-match": {
+        "description": "Match project complexity to template complexity",
+        "weight": 0.2,
+        "matching": "complexity-level-alignment"
+      },
+      "step4-requirement-match": {
+        "description": "Match specific requirements to template capabilities",
+        "weight": 0.1,
+        "matching": "requirement-capability-overlap"
+      }
+    },
+
+    "recommendationScoring": {
+      "perfect-match": {
+        "score": "0.90-1.00",
+        "description": "Exact template match for project requirements",
+        "confidence": "very-high",
+        "customizationNeeded": "minimal"
+      },
+      "good-match": {
+        "score": "0.75-0.89",
+        "description": "Strong template match with minor customization",
+        "confidence": "high",
+        "customizationNeeded": "minor"
+      },
+      "fair-match": {
+        "score": "0.60-0.74",
+        "description": "Reasonable template match with some customization",
+        "confidence": "medium",
+        "customizationNeeded": "moderate"
+      },
+      "poor-match": {
+        "score": "0.40-0.59",
+        "description": "Template requires significant customization",
+        "confidence": "low",
+        "customizationNeeded": "significant"
+      },
+      "no-match": {
+        "score": "0.00-0.39",
+        "description": "No suitable template found, custom setup needed",
+        "confidence": "very-low",
+        "customizationNeeded": "custom-template-creation"
+      }
+    }
+  },
+
+  "setupWorkflow": {
+    "phase1-analysis": {
+      "inputs": ["project-description", "requirements", "technology-preferences"],
+      "processes": [
+        "analyze-project-requirements",
+        "detect-technology-stack",
+        "assess-project-complexity",
+        "identify-integration-needs",
+        "estimate-resource-requirements"
+      ],
+      "outputs": ["project-analysis-report", "technology-stack-assessment", "complexity-rating"]
+    },
+
+    "phase2-template-selection": {
+      "inputs": ["project-analysis-report", "technology-stack-assessment", "complexity-rating"],
+      "processes": [
+        "query-template-library",
+        "calculate-template-match-scores",
+        "rank-template-recommendations",
+        "generate-customization-suggestions",
+        "create-hybrid-templates-if-needed"
+      ],
+      "outputs": ["template-recommendations", "customization-plan", "setup-configuration"]
+    },
+
+    "phase3-configuration": {
+      "inputs": ["template-recommendations", "customization-plan", "user-preferences"],
+      "processes": [
+        "configure-agent-team",
+        "customize-workflows",
+        "adapt-protocols",
+        "set-quality-standards",
+        "configure-integrations"
+      ],
+      "outputs": ["configured-agent-team", "customized-workflows", "protocol-configuration"]
+    },
+
+    "phase4-validation": {
+      "inputs": ["configured-agent-team", "customized-workflows", "protocol-configuration"],
+      "processes": [
+        "validate-configuration-completeness",
+        "check-agent-capability-alignment",
+        "verify-workflow-logic",
+        "validate-protocol-compatibility",
+        "generate-setup-summary"
+      ],
+      "outputs": ["validation-report", "setup-summary", "initialization-ready-configuration"]
+    }
+  },
+
+  "interactionProtocols": {
+    "userInteraction": {
+      "setupWizard": {
+        "step1-project-basics": {
+          "questions": [
+            "What type of project are you building?",
+            "What technologies do you plan to use?",
+            "What is the estimated project size/complexity?",
+            "Do you have any specific requirements or constraints?"
+          ],
+          "inputTypes": ["selection", "text", "multiple-choice", "optional-text"]
+        },
+        "step2-preferences": {
+          "questions": [
+            "What development methodology do you prefer?",
+            "What quality standards should we enforce?",
+            "Do you need specific integrations (CI/CD, deployment, etc.)?",
+            "How much automation vs. human oversight do you want?"
+          ],
+          "inputTypes": ["selection", "multiple-choice", "checkbox", "slider"]
+        },
+        "step3-confirmation": {
+          "presentation": "recommended-template-configuration",
+          "options": ["accept", "customize", "try-different-template"],
+          "customization": "guided-template-modification"
+        }
+      },
+
+      "automatedAnalysis": {
+        "textAnalysis": "Extract project details from natural language description",
+        "keywordExtraction": "Identify technology stack and requirements from text",
+        "requirementInference": "Infer implicit requirements from project description",
+        "confidenceScoring": "Rate confidence in project understanding"
+      }
+    }
+  },
+
+  "customizationCapabilities": {
+    "agentTeamCustomization": {
+      "addSpecializedAgents": "Add domain-specific agents for unique requirements",
+      "removeUnnecessaryAgents": "Remove agents not needed for project scope",
+      "adjustCapacities": "Modify agent capacity based on project scale",
+      "customizeThresholds": "Adjust confidence thresholds based on project criticality"
+    },
+
+    "workflowCustomization": {
+      "addStages": "Add project-specific workflow stages",
+      "removeStages": "Remove unnecessary workflow stages",
+      "modifyQualityGates": "Adjust quality gates for project requirements",
+      "configureBranching": "Set up conditional workflow routing"
+    },
+
+    "protocolCustomization": {
+      "versionControlAdaptation": "Customize branching strategy for team size and preferences",
+      "qualityStandardAdjustment": "Modify quality standards for project criticality",
+      "deploymentProtocolSetup": "Configure deployment protocols for target environment",
+      "integrationProtocolSetup": "Set up protocols for external tool integrations"
+    }
+  },
+
+  "outputGeneration": {
+    "configurationFiles": {
+      "projectConfiguration": "Complete project setup configuration file",
+      "agentTeamManifest": "Configured agent team with capabilities and thresholds",
+      "workflowDefinitions": "Customized workflow definitions for project",
+      "protocolSpecifications": "Adapted protocols for project requirements"
+    },
+
+    "documentationGeneration": {
+      "setupSummary": "Human-readable summary of project setup",
+      "agentTeamGuide": "Guide to working with configured agent team",
+      "workflowDocumentation": "Documentation of project workflows",
+      "protocolGuide": "Guide to version control and development protocols"
+    },
+
+    "initializationInstructions": {
+      "stepByStepSetup": "Detailed setup instructions for development environment",
+      "toolInstallation": "Required tools and installation instructions",
+      "configurationSteps": "Steps to apply generated configuration",
+      "verificationChecklist": "Checklist to verify successful setup"
+    }
+  }
+}

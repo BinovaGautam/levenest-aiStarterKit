@@ -1,0 +1,210 @@
+{
+  "templateMetadata": {
+    "templateId": "wordpress-theme-development-team",
+    "templateName": "WordPress Theme Development Team",
+    "version": "1.0.0",
+    "description": "Specialized agent team for custom WordPress theme development",
+    "category": "wordpress",
+    "subcategory": "theme-development",
+    "targetProject": "Custom WordPress themes, child themes, and theme customizations",
+    "complexity": "medium",
+    "teamSize": "5-agents",
+    "estimatedSetupTime": "15-minutes"
+  },
+
+  "agentTeam": {
+    "requirement-analyzer": {
+      "agentId": "WP-REQ-AGENT-001",
+      "specialization": "wordpress-requirements",
+      "capabilities": {
+        "primary": [
+          "wordpress-theme-requirements",
+          "custom-post-type-analysis",
+          "acf-field-requirements",
+          "woocommerce-integration-needs",
+          "responsive-design-requirements"
+        ],
+        "secondary": [
+          "wordpress-multisite-considerations",
+          "accessibility-requirements",
+          "seo-optimization-needs",
+          "performance-requirements"
+        ],
+        "wordpress-specific": [
+          "theme-customizer-options",
+          "widget-area-definitions",
+          "menu-location-requirements",
+          "custom-template-needs"
+        ]
+      },
+      "confidenceThreshold": 0.85,
+      "maxCapacity": 3
+    },
+
+    "architecture-designer": {
+      "agentId": "WP-ARCH-AGENT-001",
+      "specialization": "wordpress-architecture",
+      "capabilities": {
+        "primary": [
+          "wordpress-theme-structure",
+          "template-hierarchy-design",
+          "hooks-and-filters-architecture",
+          "performance-optimization-strategy"
+        ],
+        "secondary": [
+          "security-architecture",
+          "caching-strategy",
+          "database-optimization",
+          "cdn-integration-planning"
+        ],
+        "wordpress-specific": [
+          "theme-customizer-framework",
+          "gutenberg-block-architecture",
+          "child-theme-strategy",
+          "plugin-compatibility-design"
+        ]
+      },
+      "confidenceThreshold": 0.90,
+      "maxCapacity": 2
+    },
+
+    "code-generator": {
+      "agentId": "WP-CODE-AGENT-001",
+      "specialization": "wordpress-development",
+      "capabilities": {
+        "primary": [
+          "php-wordpress-development",
+          "custom-theme-creation",
+          "template-file-generation",
+          "functions-php-development"
+        ],
+        "secondary": [
+          "javascript-wordpress-integration",
+          "css-scss-styling",
+          "gutenberg-block-development",
+          "rest-api-integration"
+        ],
+        "wordpress-specific": [
+          "wp-query-optimization",
+          "custom-post-types-implementation",
+          "acf-integration",
+          "woocommerce-hooks-implementation"
+        ]
+      },
+      "confidenceThreshold": 0.80,
+      "maxCapacity": 5,
+      "codeStandards": {
+        "phpStandards": "WordPress-Core",
+        "jsStandards": "WordPress-JavaScript",
+        "cssStandards": "WordPress-CSS",
+        "accessibilityStandards": "WCAG-2.1-AA"
+      }
+    },
+
+    "critical-reviewer": {
+      "agentId": "WP-REVIEW-AGENT-001",
+      "specialization": "wordpress-code-review",
+      "capabilities": {
+        "primary": [
+          "wordpress-coding-standards-review",
+          "security-vulnerability-detection",
+          "performance-optimization-review",
+          "accessibility-compliance-check"
+        ],
+        "secondary": [
+          "seo-optimization-review",
+          "mobile-responsiveness-check",
+          "cross-browser-compatibility",
+          "plugin-conflict-detection"
+        ],
+        "wordpress-specific": [
+          "wp-hooks-usage-review",
+          "database-query-optimization",
+          "sanitization-validation-review",
+          "theme-customizer-implementation-review"
+        ]
+      },
+      "confidenceThreshold": 0.95,
+      "maxCapacity": 4,
+      "reviewChecklist": {
+        "security": ["data-sanitization", "sql-injection-prevention", "xss-protection"],
+        "performance": ["query-optimization", "image-optimization", "caching-implementation"],
+        "standards": ["coding-standards-compliance", "accessibility-standards", "seo-optimization"]
+      }
+    },
+
+    "testing-specialist": {
+      "agentId": "WP-TEST-AGENT-001",
+      "specialization": "wordpress-testing",
+      "capabilities": {
+        "primary": [
+          "wordpress-theme-testing",
+          "responsive-design-testing",
+          "cross-browser-testing",
+          "accessibility-testing"
+        ],
+        "secondary": [
+          "performance-testing",
+          "seo-testing",
+          "security-testing",
+          "plugin-compatibility-testing"
+        ],
+        "wordpress-specific": [
+          "theme-unit-testing",
+          "gutenberg-compatibility-testing",
+          "multisite-testing",
+          "woocommerce-integration-testing"
+        ]
+      },
+      "confidenceThreshold": 0.90,
+      "maxCapacity": 3,
+      "testingTools": {
+        "automated": ["phpunit", "codeception", "wp-browser"],
+        "manual": ["theme-unit-test", "accessibility-checker", "performance-profiler"],
+        "validation": ["html-validator", "css-validator", "accessibility-validator"]
+      }
+    }
+  },
+
+  "workflowIntegrations": [
+    "levenest/templates/workflows/wordpress/theme-development-flow.json",
+    "levenest/templates/workflows/testing/wordpress-theme-testing.json",
+    "levenest/templates/workflows/deployment/wordpress-staging-deployment.json"
+  ],
+
+  "protocolIntegrations": [
+    "levenest/templates/protocols/version-control/gitflow-wordpress.json",
+    "levenest/templates/protocols/quality-gates/wordpress-quality-standards.json",
+    "levenest/templates/protocols/deployment/wordpress-deployment-protocol.json"
+  ],
+
+  "requiredTools": {
+    "development": ["Local by Flywheel", "XAMPP", "Docker WordPress"],
+    "versionControl": ["Git", "GitHub/GitLab"],
+    "testing": ["WordPress Theme Unit Test", "Accessibility Checker"],
+    "deployment": ["WP-CLI", "Staging Environment", "Backup Solution"]
+  },
+
+  "qualityStandards": {
+    "codeQuality": {
+      "phpStandards": "WordPress-Core",
+      "securityStandards": "WordPress-Security-Guidelines",
+      "performanceStandards": "WordPress-Performance-Best-Practices",
+      "accessibilityStandards": "WCAG-2.1-AA"
+    },
+    "testingRequirements": {
+      "themeUnitTest": "required",
+      "responsiveTesting": "required",
+      "accessibilityTesting": "required",
+      "performanceTesting": "required"
+    }
+  },
+
+  "setupInstructions": {
+    "step1": "Initialize WordPress development environment",
+    "step2": "Configure agent team with WordPress-specific capabilities",
+    "step3": "Set up theme development workflow and quality gates",
+    "step4": "Configure testing protocols and deployment procedures",
+    "step5": "Initialize version control with WordPress-specific gitignore"
+  }
+}

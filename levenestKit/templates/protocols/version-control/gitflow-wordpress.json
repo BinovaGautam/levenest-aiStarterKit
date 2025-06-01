@@ -1,0 +1,249 @@
+{
+  "protocolMetadata": {
+    "protocolId": "gitflow-wordpress",
+    "protocolName": "GitFlow for WordPress Development",
+    "version": "1.0.0",
+    "description": "GitFlow branching strategy adapted for WordPress theme and plugin development",
+    "category": "version-control",
+    "subcategory": "gitflow",
+    "applicableProjects": ["wordpress-themes", "wordpress-plugins", "wordpress-sites"],
+    "teamSize": "1-10 developers",
+    "complexity": "medium"
+  },
+
+  "branchingStrategy": {
+    "mainBranches": {
+      "main": {
+        "description": "Production-ready WordPress theme/plugin code",
+        "protection": "protected-branch",
+        "mergingPolicy": "pull-request-required",
+        "codeReviewRequired": true,
+        "deploymentTarget": "production",
+        "stability": "stable"
+      },
+      "develop": {
+        "description": "Integration branch for WordPress development",
+        "protection": "protected-branch",
+        "mergingPolicy": "pull-request-required",
+        "codeReviewRequired": true,
+        "deploymentTarget": "staging",
+        "stability": "unstable-development"
+      }
+    },
+
+    "supportingBranches": {
+      "feature": {
+        "namingConvention": "feature/wp-feature-description",
+        "examples": ["feature/wp-custom-post-types", "feature/wp-theme-customizer", "feature/wp-woocommerce-integration"],
+        "sourceBranch": "develop",
+        "mergeTarget": "develop",
+        "lifetime": "temporary",
+        "description": "WordPress-specific feature development"
+      },
+      "release": {
+        "namingConvention": "release/v{major}.{minor}.{patch}",
+        "examples": ["release/v1.2.0", "release/v2.1.3"],
+        "sourceBranch": "develop",
+        "mergeTarget": ["main", "develop"],
+        "lifetime": "temporary",
+        "description": "WordPress theme/plugin release preparation"
+      },
+      "hotfix": {
+        "namingConvention": "hotfix/wp-critical-issue-description",
+        "examples": ["hotfix/wp-security-vulnerability", "hotfix/wp-fatal-error-fix"],
+        "sourceBranch": "main",
+        "mergeTarget": ["main", "develop"],
+        "lifetime": "temporary",
+        "description": "Critical WordPress issue fixes"
+      }
+    }
+  },
+
+  "commitConventions": {
+    "commitMessageFormat": {
+      "structure": "[type](wp-scope): description",
+      "types": {
+        "feat": "New WordPress feature (theme function, custom post type, etc.)",
+        "fix": "WordPress bug fix (PHP error, styling issue, etc.)",
+        "docs": "WordPress documentation (README, comments, etc.)",
+        "style": "WordPress styling (CSS, formatting, no logic change)",
+        "refactor": "WordPress code refactoring (no functional change)",
+        "test": "WordPress testing (PHPUnit, theme unit tests, etc.)",
+        "chore": "WordPress maintenance (version bump, dependencies, etc.)"
+      },
+      "wordpressScopes": {
+        "theme": "WordPress theme-related changes",
+        "plugin": "WordPress plugin-related changes",
+        "functions": "functions.php modifications",
+        "templates": "WordPress template file changes",
+        "hooks": "WordPress hooks and filters",
+        "customizer": "WordPress Customizer modifications",
+        "blocks": "Gutenberg block development",
+        "woocommerce": "WooCommerce integration",
+        "acf": "Advanced Custom Fields integration",
+        "performance": "WordPress performance optimizations",
+        "security": "WordPress security improvements"
+      }
+    },
+
+    "commitExamples": [
+      "feat(theme): add custom post type for portfolio items",
+      "fix(templates): resolve mobile responsive layout issue",
+      "docs(functions): add documentation for custom hooks",
+      "style(theme): improve CSS formatting and organization",
+      "refactor(hooks): optimize WordPress query performance",
+      "test(theme): add PHPUnit tests for custom functions",
+      "chore(theme): update WordPress version compatibility"
+    ]
+  },
+
+  "wordpressSpecificWorkflows": {
+    "themeDeployment": {
+      "stagingDeployment": {
+        "triggerBranch": "develop",
+        "automaticDeployment": true,
+        "environment": "staging",
+        "testingRequired": ["theme-unit-test", "responsive-testing", "accessibility-testing"]
+      },
+      "productionDeployment": {
+        "triggerBranch": "main",
+        "automaticDeployment": false,
+        "humanApprovalRequired": true,
+        "environment": "production",
+        "preDeploymentChecks": ["backup-creation", "maintenance-mode", "rollback-plan"]
+      }
+    },
+
+    "pluginDeployment": {
+      "wordpressRepositorySubmission": {
+        "branch": "main",
+        "versionTagRequired": true,
+        "readmeValidation": true,
+        "securityScanRequired": true
+      }
+    }
+  },
+
+  "qualityGates": {
+    "preMergeChecks": {
+      "automated": [
+        "wordpress-coding-standards-validation",
+        "php-syntax-validation",
+        "css-validation",
+        "javascript-linting",
+        "security-vulnerability-scan"
+      ],
+      "manual": [
+        "code-review-approval",
+        "functionality-testing",
+        "cross-browser-testing",
+        "accessibility-validation"
+      ]
+    },
+
+    "preReleaseChecks": {
+      "automated": [
+        "full-test-suite-execution",
+        "wordpress-compatibility-check",
+        "plugin-conflict-testing",
+        "performance-benchmarking"
+      ],
+      "manual": [
+        "user-acceptance-testing",
+        "documentation-review",
+        "changelog-validation",
+        "deployment-approval"
+      ]
+    }
+  },
+
+  "wordpressFileManagement": {
+    "gitignoreTemplate": [
+      "# WordPress Core",
+      "/wp-config.php",
+      "/wp-content/uploads/",
+      "/wp-content/cache/",
+      "/wp-content/upgrade/",
+      "",
+      "# WordPress Themes",
+      "/wp-content/themes/twenty*/",
+      "",
+      "# WordPress Plugins",
+      "/wp-content/plugins/akismet/",
+      "/wp-content/plugins/hello.php",
+      "",
+      "# Development Files",
+      "node_modules/",
+      ".sass-cache/",
+      "*.log",
+      ".DS_Store",
+      "Thumbs.db",
+      "",
+      "# IDE Files",
+      ".vscode/",
+      ".idea/",
+      "*.swp",
+      "*.swo"
+    ],
+
+    "protectedFiles": [
+      "wp-config.php",
+      ".htaccess",
+      "index.php",
+      "wp-settings.php"
+    ]
+  },
+
+  "automationIntegrations": {
+    "githubActions": {
+      "wordpressCodestandards": "Automatic WordPress coding standards check",
+      "phpCompatibility": "PHP version compatibility testing",
+      "securityScanning": "WordPress security vulnerability detection",
+      "themeUnitTesting": "Automated WordPress theme unit testing"
+    },
+
+    "deploymentAutomation": {
+      "staging": "Automatic deployment to staging on develop branch updates",
+      "production": "Manual deployment to production with approval workflow",
+      "rollback": "Automatic rollback capability for failed deployments"
+    }
+  },
+
+  "releaseManagement": {
+    "versioningScheme": {
+      "format": "semantic-versioning",
+      "major": "Breaking changes or major WordPress compatibility updates",
+      "minor": "New features or WordPress version compatibility",
+      "patch": "Bug fixes and security updates"
+    },
+
+    "releaseChecklist": [
+      "Update theme/plugin version numbers",
+      "Update WordPress compatibility version",
+      "Generate changelog from commit history",
+      "Update README.md with new features",
+      "Run full test suite",
+      "Create release tag",
+      "Deploy to production",
+      "Submit to WordPress repository (if applicable)"
+    ]
+  },
+
+  "emergencyProcedures": {
+    "criticalWordPressBugFix": {
+      "process": "Create hotfix branch from main",
+      "testing": "Minimal testing on critical path only",
+      "approval": "Single senior developer approval required",
+      "deployment": "Immediate production deployment",
+      "rollback": "Automatic rollback if issues detected"
+    },
+
+    "securityVulnerability": {
+      "process": "Immediate hotfix branch creation",
+      "secrecy": "Private development until fix is deployed",
+      "testing": "Security-focused testing",
+      "deployment": "Emergency deployment procedure",
+      "notification": "Notify users after fix is deployed"
+    }
+  }
+}

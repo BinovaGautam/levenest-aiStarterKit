@@ -1,0 +1,33 @@
+version: 1.0.0
+rules:
+  - id: prevent-files-in-root
+    applies_to: "workspace/*"
+    type: critical
+    description: "Only directories allowed at workspace root level. No loose files."
+
+  - id: restrict-temp-persistence
+    applies_to: "workspace/temp/**"
+    type: modest
+    description: "Temp files must be cleaned or moved to permanent storage by agents"
+
+  - id: enforce-task-naming
+    applies_to: "workspace/tasks/*.yaml"
+    type: modest
+    description: "Task files must start with ISO date format for sorting"
+    conditions:
+      pattern: "^\\d{4}-\\d{2}.*\\.yaml$"
+
+  - id: context-files-format
+    applies_to: "workspace/context/*"
+    type: critical
+    description: "Context files must be Markdown or YAML"
+
+  - id: reports-only-in-directory
+    applies_to: "workspace/reports/**"
+    type: critical
+    description: "No reports should be written outside `reports/`"
+
+  - id: sprint-must-link-tasks
+    applies_to: "workspace/sprints/*.yaml"
+    type: modest
+    description: "Each sprint file must reference task IDs" 

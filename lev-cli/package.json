@@ -1,0 +1,16 @@
+{
+  "name": "@levenest/cli",
+  "version": "0.1.0",
+  "description": "Levenest command-line interface",
+  "bin": {
+    "lev": "bin/lev.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^11.0.0",
+    "yaml": "^2.3.2",
+    "fs-extra": "^11.1.1",
+    "glob": "^10.2.7"
+  }
+} 

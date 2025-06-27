@@ -1,0 +1,12 @@
+id: package-manager-agent-wrapper
+inherits: "@base/package-manager-agent@1.0.0"
+name: Package Manager Agent (Wrapper)
+version: 1.0.0
+type: wrapper
+description: Thin wrapper for base package-manager-agent.
+inputs:
+  - action # install|remove
+  - package_name
+  - version
+outputs:
+  - modules_index_path 

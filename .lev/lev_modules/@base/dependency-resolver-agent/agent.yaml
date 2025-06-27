@@ -1,0 +1,10 @@
+id: dependency-resolver-agent
+name: Dependency Resolver Agent
+version: 1.0.0
+type: base
+description: Resolves dependencies and reference links between agents, workflows, and packages.
+inputs:
+  - source_type # agent|workflow
+  - source_id
+outputs:
+  - resolved_dependencies 

@@ -1,0 +1,13 @@
+id: project-bootstrapping-workflow
+name: Project Bootstrapping Workflow
+version: 1.0.0
+description: Initializes the full .lev folder structure and default files.
+steps:
+  - id: create-folders
+    agent: execution-engine-agent@1.0.0
+    inputs:
+      - workflow_id: "internal:create-folders"
+  - id: enforce-rules
+    agent: fundamentals-enforcer-agent@1.0.0
+    inputs:
+      - target_path: ".lev/" 

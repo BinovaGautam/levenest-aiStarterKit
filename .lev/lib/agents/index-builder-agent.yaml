@@ -1,0 +1,10 @@
+id: index-builder-agent-wrapper
+inherits: "@base/index-builder-agent@1.0.0"
+name: Module Index Builder (Wrapper)
+version: 1.0.0
+type: wrapper
+description: Thin wrapper for base index builder.
+inputs:
+  - modules_dir
+outputs:
+  - index_file_path 

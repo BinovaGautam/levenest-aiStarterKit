@@ -1,0 +1,16 @@
+id: pre-release-check
+name: Pre-Release Check Workflow
+version: 1.0.0
+steps:
+  - id: validate-fundamentals
+    agent: fundamentals-enforcer-agent@1.0.0
+    inputs:
+      - target_path: ".lev/"
+  - id: run-tests
+    agent: execution-engine-agent@1.0.0
+    inputs:
+      - workflow_id: "internal:run-tests"
+  - id: generate-report
+    agent: execution-engine-agent@1.0.0
+    inputs:
+      - workflow_id: "internal:generate-release-report" 

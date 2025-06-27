@@ -1,0 +1,64 @@
+{
+  "packages": [
+    {
+      "name": "@base/logger-agent",
+      "version": "1.0.0",
+      "description": "Base logger agent for system-wide logging.",
+      "immutable": true
+    },
+    {
+      "name": "@third-party/ai-copilot",
+      "version": "1.0.0",
+      "description": "Third-party AI copilot agent.",
+      "immutable": true
+    },
+    {
+      "name": "@base/agent-crud-agent",
+      "version": "1.0.0",
+      "description": "Base agent for managing agent CRUD operations.",
+      "immutable": true
+    },
+    {
+      "name": "@base/workflow-crud-agent",
+      "version": "1.0.0",
+      "description": "Base agent for managing workflow CRUD operations.",
+      "immutable": true
+    },
+    {
+      "name": "@base/package-manager-agent",
+      "version": "1.0.0",
+      "description": "Base agent for package management.",
+      "immutable": true
+    },
+    {
+      "name": "@base/dependency-resolver-agent",
+      "version": "1.0.0",
+      "description": "Base agent for resolving dependencies.",
+      "immutable": true
+    },
+    {
+      "name": "@base/index-builder-agent",
+      "version": "1.0.0",
+      "description": "Base agent for building modules index.",
+      "immutable": true
+    },
+    {
+      "name": "@base/fundamentals-enforcer-agent",
+      "version": "1.0.0",
+      "description": "Base agent enforcing fundamentals rules.",
+      "immutable": true
+    },
+    {
+      "name": "@base/execution-engine-agent",
+      "version": "1.0.0",
+      "description": "Base workflow execution engine.",
+      "immutable": true
+    },
+    {
+      "name": "@base/agent-crud-workflow",
+      "version": "1.0.0",
+      "description": "Base workflow for CRUD of agents.",
+      "immutable": true
+    }
+  ]
+} 

@@ -1,0 +1,12 @@
+id: agent-crud-agent-wrapper
+inherits: "@base/agent-crud-agent@1.0.0"
+name: Agent CRUD Manager (Wrapper)
+version: 1.0.0
+type: wrapper
+description: Thin wrapper re-exporting base agent.
+inputs:
+  - name
+  - extends
+  - type
+outputs:
+  - agent_file_path 

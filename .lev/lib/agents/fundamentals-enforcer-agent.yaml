@@ -1,0 +1,10 @@
+id: fundamentals-enforcer-agent-wrapper
+inherits: "@base/fundamentals-enforcer-agent@1.0.0"
+name: Fundamentals Enforcer Agent (Wrapper)
+version: 1.0.0
+type: wrapper
+description: Thin wrapper for base fundamentals enforcer.
+inputs:
+  - target_path
+outputs:
+  - violations_report 

@@ -1,0 +1,11 @@
+id: package-manager-agent
+name: Package Manager Agent
+version: 1.0.0
+type: base
+description: Adds or removes packages in lev_modules.
+inputs:
+  - action # install|remove
+  - package_name
+  - version
+outputs:
+  - modules_index_path 

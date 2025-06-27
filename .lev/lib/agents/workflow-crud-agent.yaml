@@ -1,0 +1,12 @@
+id: workflow-crud-agent-wrapper
+inherits: "@base/workflow-crud-agent@1.0.0"
+name: Workflow CRUD Manager (Wrapper)
+version: 1.0.0
+type: wrapper
+description: Thin wrapper for base workflow-crud-agent.
+inputs:
+  - name
+  - steps
+  - version
+outputs:
+  - workflow_file_path 

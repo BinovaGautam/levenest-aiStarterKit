@@ -1,0 +1,18 @@
+id: workflow-crud-workflow
+name: Workflow CRUD Workflow
+version: 1.0.0
+steps:
+  - id: validate-input
+    agent: fundamentals-enforcer-agent@1.0.0
+    inputs:
+      - target_path: "lib/workflows/"
+  - id: create-workflow
+    agent: workflow-crud-agent@1.0.0
+    inputs:
+      - name
+      - steps
+  - id: resolve-deps
+    agent: dependency-resolver-agent@1.0.0
+    inputs:
+      - source_type: workflow
+      - source_id: "${create-workflow.outputs.workflow_file_path}" 

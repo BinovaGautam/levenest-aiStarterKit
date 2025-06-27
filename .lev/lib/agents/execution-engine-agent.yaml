@@ -1,0 +1,12 @@
+id: execution-engine-agent-wrapper
+inherits: "@base/execution-engine-agent@1.0.0"
+name: Execution Engine Agent (Wrapper)
+version: 1.0.0
+type: wrapper
+description: Thin wrapper for base execution engine.
+inputs:
+  - workflow_id
+  - input_payload
+outputs:
+  - execution_report
+  - logs_path 

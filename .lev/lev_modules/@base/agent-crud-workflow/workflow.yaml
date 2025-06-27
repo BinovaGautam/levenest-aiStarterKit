@@ -1,0 +1,22 @@
+id: agent-crud-workflow
+name: Agent CRUD Workflow
+version: 1.0.0
+steps:
+  - id: validate-input
+    agent: fundamentals-enforcer-agent@1.0.0
+    inputs:
+      - target_path: "lib/agents/"
+  - id: create-agent
+    agent: agent-crud-agent@1.0.0
+    inputs:
+      - name
+      - extends
+  - id: resolve-deps
+    agent: dependency-resolver-agent@1.0.0
+    inputs:
+      - source_type: agent
+      - source_id: "${create-agent.outputs.agent_file_path}"
+  - id: update-index
+    agent: index-builder-agent@1.0.0
+    inputs:
+      - modules_dir: lev_modules 

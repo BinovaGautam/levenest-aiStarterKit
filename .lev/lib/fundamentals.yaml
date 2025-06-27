@@ -1,0 +1,16 @@
+version: 1.0.0
+rules:
+  - id: enforce-agent-version
+    applies_to: "agents/*.yaml"
+    type: critical
+    description: "Every agent file must contain a `version` key."
+
+  - id: enforce-workflow-version
+    applies_to: "workflows/*.yaml"
+    type: critical
+    description: "Every workflow file must contain a `version` key."
+
+  - id: disallow-js-in-agents
+    applies_to: "agents/**/*.js"
+    type: critical
+    description: "No JavaScript files are allowed inside agents definition directory." 

@@ -1,0 +1,9 @@
+id: index-builder-agent
+name: Module Index Builder
+version: 1.0.0
+type: base
+description: Updates lev_modules/index.json after package operations.
+inputs:
+  - modules_dir
+outputs:
+  - index_file_path 

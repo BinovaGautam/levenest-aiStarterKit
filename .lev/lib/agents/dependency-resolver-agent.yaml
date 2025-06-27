@@ -1,0 +1,11 @@
+id: dependency-resolver-agent-wrapper
+inherits: "@base/dependency-resolver-agent@1.0.0"
+name: Dependency Resolver Agent (Wrapper)
+version: 1.0.0
+type: wrapper
+description: Thin wrapper for base dependency-resolver-agent.
+inputs:
+  - source_type # agent|workflow
+  - source_id
+outputs:
+  - resolved_dependencies 

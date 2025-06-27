@@ -1,0 +1,38 @@
+version: 1.0.0
+rules:
+  - id: no-loose-files-in-workspace-root
+    applies_to: "workspace/*.*"
+    type: critical
+    description: "Disallow any loose files in workspace root; only directories permitted."
+
+  - id: enforce-iso-task-names
+    applies_to: "workspace/tasks/*.yaml"
+    type: critical
+    description: "Task files must begin with ISO8601 date (YYYY-MM-DD)."
+    conditions:
+      pattern: "^\\d{4}-\\d{2}-\\d{2}.*\\.yaml$"
+
+  - id: forbid-code-outside-lev
+    applies_to: "../**/*.js"
+    type: critical
+    description: "No executable code should live outside the .lev directory tree."
+
+  - id: protect-lev-modules
+    applies_to: "lev_modules/**"
+    type: critical
+    description: "All module packages are immutable once installed."
+
+  - id: agent-inheritance
+    applies_to: "lib/agents/*.yaml"
+    type: modest
+    description: "Agents in lib/agents must inherit from a base agent unless `type: standalone`."
+
+  - id: yaml-only-workflows
+    applies_to: "lib/workflows/*.yaml"
+    type: critical
+    description: "All workflows must be YAML files and reference version-locked agents."
+
+  - id: forbid-shadowing-packages
+    applies_to: "lib/agents/*.yaml"
+    type: critical
+    description: "An agent defined in lib must not have the same id as a package in lev_modules." 

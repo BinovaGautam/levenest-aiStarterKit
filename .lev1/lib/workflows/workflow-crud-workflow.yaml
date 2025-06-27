@@ -1,9 +1,0 @@
-id: workflow-crud-workflow
-name: Create or Edit Workflow
-steps:
-  - id: validate-workflow-name
-    agent: input-validator-agent
-    inputs: [workflow_name]
-  - id: create-workflow-file
-    agent: workflow-crud-agent
-    inputs: [workflow_name, steps]

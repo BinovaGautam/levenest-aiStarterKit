@@ -1,0 +1,11 @@
+id: execution-engine-agent
+name: Execution Engine Agent
+version: 1.0.0
+type: base
+description: Executes workflows and logs status of each step.
+inputs:
+  - workflow_id
+  - input_payload
+outputs:
+  - execution_report
+  - logs_path 

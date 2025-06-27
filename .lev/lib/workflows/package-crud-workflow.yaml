@@ -1,0 +1,14 @@
+id: package-crud-workflow
+name: Package CRUD Workflow
+version: 1.0.0
+steps:
+  - id: manage-package
+    agent: package-manager-agent@1.0.0
+    inputs:
+      - action
+      - package_name
+      - version
+  - id: update-index
+    agent: index-builder-agent@1.0.0
+    inputs:
+      - modules_dir: lev_modules 

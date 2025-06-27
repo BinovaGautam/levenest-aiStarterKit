@@ -1,0 +1,11 @@
+id: workflow-crud-agent
+name: Workflow CRUD Manager
+version: 1.0.0
+type: base
+description: Manages creation, editing, and validation of workflows.
+inputs:
+  - name
+  - steps
+  - version
+outputs:
+  - workflow_file_path 

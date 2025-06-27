@@ -1,0 +1,4 @@
+id: agent-crud-workflow-wrapper
+inherits: "@base/agent-crud-workflow@1.0.0"
+name: Agent CRUD Workflow (Wrapper)
+version: 1.0.0

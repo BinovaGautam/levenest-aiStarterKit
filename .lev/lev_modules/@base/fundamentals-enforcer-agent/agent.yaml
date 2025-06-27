@@ -1,0 +1,9 @@
+id: fundamentals-enforcer-agent
+name: Fundamentals Enforcer Agent
+version: 1.0.0
+type: base
+description: Validates folder/file compliance with fundamentals.yaml rules.
+inputs:
+  - target_path
+outputs:
+  - violations_report 

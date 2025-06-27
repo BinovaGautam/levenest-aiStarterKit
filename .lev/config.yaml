@@ -1,0 +1,8 @@
+registry: https://registry.levenest.dev
+language: typescript
+package_manager: pnpm
+workspace_dir: workspace
+lib_dir: lib
+modules_dir: lev_modules
+cli:
+  default_workflow: project-bootstrapping-workflow 

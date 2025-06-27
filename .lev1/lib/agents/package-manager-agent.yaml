@@ -1,0 +1,6 @@
+id: package-manager-agent
+name: Package Manager Agent
+type: system
+description: Installs, removes, and lists lev_modules packages.
+inputs: [package_name, command]
+outputs: [status]

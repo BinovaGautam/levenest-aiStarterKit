@@ -1,0 +1,6 @@
+id: agent-crud-agent
+name: Agent CRUD Manager
+type: manager
+description: Manages creation, editing, validation, and inheritance of agents.
+inputs: [name, extends, type]
+outputs: [agent_file_path]

@@ -1,0 +1,12 @@
+id: agent-crud-workflow
+name: Create or Edit Agent
+steps:
+  - id: validate-name
+    agent: input-validator-agent
+    inputs: [proposed_name]
+  - id: create-agent-file
+    agent: agent-crud-agent
+    inputs: [name, extends]
+  - id: register-agent
+    agent: index-builder-agent
+    inputs: [agent_file_path]

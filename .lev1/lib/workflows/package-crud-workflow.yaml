@@ -1,0 +1,9 @@
+id: package-crud-workflow
+name: Install or Remove Packages
+steps:
+  - id: resolve-deps
+    agent: dependency-resolver-agent
+    inputs: [package_name]
+  - id: exec-install
+    agent: package-manager-agent
+    inputs: [package_name, command]
